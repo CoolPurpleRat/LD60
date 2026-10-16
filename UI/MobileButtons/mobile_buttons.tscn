@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://d1rkbnvhjnv4w"]
+
+[ext_resource type="Texture2D" uid="uid://dsilksexm7ciy" path="res://###ASSETS###/5 UI/RightUp.png" id="1_8sqeq"]
+[ext_resource type="Script" uid="uid://e67xd4bp2grj" path="res://UI/MobileButtons/mobile_buttons.gd" id="1_ijkv3"]
+[ext_resource type="Texture2D" uid="uid://bqil81bvf1w5r" path="res://###ASSETS###/5 UI/Pause.png" id="2_ijkv3"]
+
+[node name="MobileButtons" type="CanvasLayer" unique_id=1870105281]
+script = ExtResource("1_ijkv3")
+
+[node name="OpacityControl" type="Control" parent="." unique_id=1529861087]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="OpacityControl" unique_id=1596361324]
+position = Vector2(0, 648)
+rotation = -1.5707964
+scale = Vector2(2.1360588, 3.222703)
+texture_normal = ExtResource("1_8sqeq")
+action = "MoveLeft"
+visibility_mode = 1
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="OpacityControl" unique_id=1989380475]
+position = Vector2(412.99997, 450.99997)
+rotation = 1.5707964
+scale = Vector2(2.136, 3.223)
+texture_normal = ExtResource("1_8sqeq")
+action = "MoveRight"
+visibility_mode = 1
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="OpacityControl" unique_id=1060815351]
+position = Vector2(955.99994, 441)
+scale = Vector2(2.136, 3.223)
+texture_normal = ExtResource("1_8sqeq")
+action = "Jump"
+visibility_mode = 1
+
+[node name="TouchScreenButton4" type="TouchScreenButton" parent="OpacityControl" unique_id=1847510429]
+position = Vector2(955.00006, 648)
+rotation = 3.1415925
+scale = Vector2(2.136, 3.223)
+texture_normal = ExtResource("1_8sqeq")
+action = "SlideDown"
+visibility_mode = 1
+
+[node name="TouchScreenButton5" type="TouchScreenButton" parent="OpacityControl" unique_id=495471682]
+position = Vector2(514, 0)
+scale = Vector2(1.9456522, 2.046875)
+texture_normal = ExtResource("2_ijkv3")
+action = "Menu"
+visibility_mode = 1

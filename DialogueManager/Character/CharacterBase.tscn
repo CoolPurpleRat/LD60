@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c4ngynjofceon"]
+
+[ext_resource type="Script" uid="uid://c8asiwiajtw52" path="res://DialogueManager/Character/Character.gd" id="1_they3"]
+[ext_resource type="AudioStream" uid="uid://7x2mka04ll6g" path="res://TestingWorld/MiSound.wav" id="2_g0s67"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_g0s67"]
+random_pitch = 1.7817973
+streams_count = 1
+stream_0/stream = ExtResource("2_g0s67")
+
+[node name="Character" type="Control" unique_id=1714362515]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_they3")
+
+[node name="TalkSFX" type="AudioStreamPlayer2D" parent="." unique_id=392728571]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_g0s67")
+volume_db = -10.0
+panning_strength = 2.0

@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://bqjujnyl2kxqc"]
+
+[ext_resource type="Script" uid="uid://ct8t6rhqr5a5a" path="res://UI/OptionsMenu/ResolutionChoose/resolution_choose.gd" id="1_po6ui"]
+[ext_resource type="Theme" uid="uid://cdmbk6lshl8rb" path="res://UI/UIThemes.tres" id="2_yrhgo"]
+[ext_resource type="Script" uid="uid://58p6ay3o7mit" path="res://UI/OptionsMenu/ResolutionChoose/ResolutionChooseXY.gd" id="3_wt1ey"]
+
+[node name="HBoxContainer" type="HBoxContainer" unique_id=2062101768]
+offset_right = 307.0
+offset_bottom = 50.0
+theme = ExtResource("2_yrhgo")
+script = ExtResource("1_po6ui")
+
+[node name="X spin" type="SpinBox" parent="." unique_id=1781737021]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+focus_neighbor_right = NodePath("../Y spin")
+focus_next = NodePath("../Y spin")
+focus_mode = 2
+theme = ExtResource("2_yrhgo")
+min_value = 100.0
+max_value = 10000.0
+value = 100.0
+rounded = true
+allow_greater = true
+update_on_text_changed = true
+suffix = "x"
+custom_arrow_step = 1.0
+select_all_on_focus = true
+script = ExtResource("3_wt1ey")
+
+[node name="Y spin" type="SpinBox" parent="." unique_id=993352057]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+focus_neighbor_left = NodePath("../X spin")
+focus_neighbor_right = NodePath("../Button")
+focus_next = NodePath("../Button")
+focus_previous = NodePath("../X spin")
+focus_mode = 2
+theme = ExtResource("2_yrhgo")
+min_value = 100.0
+max_value = 10000.0
+value = 100.0
+rounded = true
+allow_greater = true
+update_on_text_changed = true
+suffix = "y"
+custom_arrow_step = 1.0
+select_all_on_focus = true
+script = ExtResource("3_wt1ey")
+
+[node name="Button" type="Button" parent="." unique_id=146294014]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../Y spin")
+focus_previous = NodePath("../X spin")
+theme_override_font_sizes/font_size = 10
+text = "Прийняти"
+
+[connection signal="focus_entered" from="X spin" to="X spin" method="_onFocusEntered"]
+[connection signal="value_changed" from="X spin" to="." method="_on_x_spin_value_changed"]
+[connection signal="focus_entered" from="Y spin" to="Y spin" method="_onFocusEntered"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

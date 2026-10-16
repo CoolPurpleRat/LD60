@@ -1,0 +1,47 @@
+extends Control
+
+##Used to change level without lvl menu
+#@export_file("*.tscn") var changeLvlTo:String="res://Levels/Test0.tscn"
+
+#region References
+@onready var continueBRef: Button = %"Continue b"
+@onready var menuSwitcherRef: TabContainer = %MenuSwitcher
+#endregion
+enum menuTabs{MAIN, OPTIONS, CREDITS}
+
+func _ready() -> void:
+	menuSwitcherRef.current_tab=menuTabs.MAIN
+
+	#MusicSystem.playMusic(MusicSystem.MENU)
+	#MobileButtons.setVisibility(false)
+
+	#Hide exit, because OS handle it.
+	if OS.has_feature("web") or OS.has_feature("mobile"):
+		%"Exit b".visible=false
+	startFocus.call_deferred()
+
+#region Focus
+##When first menu tab visible, set their focus on first element
+#func _onLvlChooseBVisibilityChanged() -> void:
+	#startFocus.call_deferred()
+
+##Set focus on starting element for controller/keybord navigation
+func startFocus()->void:
+	#if continueBRef.visible:
+	#	continueBRef.grab_focus()
+	#elif lvlChooseBRef.visible:
+		#lvlChooseBRef.grab_focus()
+	pass
+#endregion
+
+#region Buttons
+##Exit game
+func _on_exit_b_pressed() -> void:
+	get_tree().quit()
+
+func _on_options_b_pressed() -> void:
+	menuSwitcherRef.current_tab=menuTabs.OPTIONS
+
+func _on_credits_b_pressed() -> void:
+	menuSwitcherRef.current_tab=menuTabs.CREDITS
+#endregion

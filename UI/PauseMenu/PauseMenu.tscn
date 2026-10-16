@@ -1,0 +1,151 @@
+[gd_scene format=3 uid="uid://c1kmcqguf5osy"]
+
+[ext_resource type="Script" uid="uid://huveb3vbsi4p" path="res://UI/PauseMenu/pauseMenu.gd" id="1_3ao5n"]
+[ext_resource type="PackedScene" uid="uid://b4th03c30cv03" path="res://UI/logo.tscn" id="2_no3i6"]
+[ext_resource type="PackedScene" uid="uid://b0uga4vqrfyok" path="res://UI/version.tscn" id="3_bx856"]
+[ext_resource type="Theme" uid="uid://cdmbk6lshl8rb" path="res://UI/UIThemes.tres" id="3_no3i6"]
+[ext_resource type="Script" uid="uid://bhjsk0kv2cx00" path="res://UI/Elements/animatedButton.gd" id="5_no3i6"]
+[ext_resource type="PackedScene" uid="uid://ldnfsf3asf3c" path="res://UI/OptionsMenu/options.tscn" id="6_ah665"]
+[ext_resource type="Texture2D" uid="uid://neinc785lt3k" path="res://icon.svg" id="7_2ppyi"]
+[ext_resource type="Script" uid="uid://vfivla4oju18" path="res://UI/MainMenu/return_to_main.gd" id="8_qwv65"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_no3i6"]
+action = &"ui_cancel"
+
+[sub_resource type="Shortcut" id="Shortcut_bx856"]
+events = [SubResource("InputEventAction_no3i6")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_eoxer"]
+action = &"ui_cancel"
+
+[sub_resource type="Shortcut" id="Shortcut_no3i6"]
+events = [SubResource("InputEventAction_eoxer")]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=2111053916]
+process_mode = 3
+script = ExtResource("1_3ao5n")
+
+[node name="MenuSwitcher" type="TabContainer" parent="." unique_id=1411675654]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 1155.0
+offset_bottom = 647.0
+current_tab = 0
+tabs_visible = false
+
+[node name="MainOptions" type="Panel" parent="MenuSwitcher" unique_id=1079265843]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+mouse_filter = 1
+metadata/_tab_index = 0
+metadata/_edit_lock_ = true
+
+[node name="Logo" parent="MenuSwitcher/MainOptions" unique_id=1586100177 instance=ExtResource("2_no3i6")]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 7.0
+offset_right = 921.0
+offset_bottom = 235.0
+focus_neighbor_bottom = NodePath("../Version")
+focus_next = NodePath("../Version")
+
+[node name="Version" parent="MenuSwitcher/MainOptions" unique_id=611333465 instance=ExtResource("3_bx856")]
+layout_mode = 1
+offset_top = -34.0
+offset_right = 288.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuSwitcher/MainOptions" unique_id=1694610332]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 332.0
+offset_top = 291.0
+offset_right = -347.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Continue b" type="Button" parent="MenuSwitcher/MainOptions/VBoxContainer" unique_id=1055849578 groups=["UIButton"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_neighbor_top = NodePath("../ExitToMenu b")
+focus_neighbor_bottom = NodePath("../Options b")
+focus_next = NodePath("../Options b")
+focus_previous = NodePath("../ExitToMenu b")
+theme = ExtResource("3_no3i6")
+shortcut = SubResource("Shortcut_bx856")
+text = "Continue"
+script = ExtResource("5_no3i6")
+
+[node name="Options b" type="Button" parent="MenuSwitcher/MainOptions/VBoxContainer" unique_id=1723209778 groups=["UIButton"]]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_neighbor_top = NodePath("../Continue b")
+focus_neighbor_bottom = NodePath("../Restart b")
+focus_next = NodePath("../Restart b")
+focus_previous = NodePath("../Continue b")
+theme = ExtResource("3_no3i6")
+text = "Options"
+script = ExtResource("5_no3i6")
+
+[node name="Restart b" type="Button" parent="MenuSwitcher/MainOptions/VBoxContainer" unique_id=1172614841 groups=["UIButton"]]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_neighbor_top = NodePath("../Options b")
+focus_neighbor_bottom = NodePath("../ExitToMenu b")
+focus_next = NodePath("../ExitToMenu b")
+focus_previous = NodePath("../Options b")
+theme = ExtResource("3_no3i6")
+text = "Restart"
+script = ExtResource("5_no3i6")
+
+[node name="ExitToMenu b" type="Button" parent="MenuSwitcher/MainOptions/VBoxContainer" unique_id=1157751873 groups=["UIButton"]]
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../../Version")
+focus_neighbor_top = NodePath("../Restart b")
+focus_neighbor_bottom = NodePath("../Continue b")
+focus_next = NodePath("../Continue b")
+focus_previous = NodePath("../Restart b")
+theme = ExtResource("3_no3i6")
+text = "Exit to main menu"
+script = ExtResource("5_no3i6")
+
+[node name="Options" parent="MenuSwitcher" unique_id=721165324 instance=ExtResource("6_ah665")]
+visible = false
+layout_mode = 2
+focus_neighbor_left = NodePath("../MainOptions/VBoxContainer/Continue b")
+focus_neighbor_top = NodePath("../MainOptions/VBoxContainer/Continue b")
+focus_neighbor_right = NodePath("../MainOptions/VBoxContainer/Continue b")
+focus_neighbor_bottom = NodePath("../MainOptions/VBoxContainer/Continue b")
+focus_next = NodePath("../MainOptions/VBoxContainer/Continue b")
+focus_previous = NodePath("../MainOptions/VBoxContainer/Continue b")
+metadata/_tab_index = 1
+
+[node name="ReturnToMain" type="TextureButton" parent="." unique_id=32377615 node_paths=PackedStringArray("menu")]
+texture_filter = 1
+offset_top = 84.0
+offset_right = 84.0
+offset_bottom = 169.344
+rotation = -1.5707964
+shortcut = SubResource("Shortcut_no3i6")
+texture_normal = ExtResource("7_2ppyi")
+stretch_mode = 0
+script = ExtResource("8_qwv65")
+menu = NodePath("../MenuSwitcher")
+
+[connection signal="tab_changed" from="MenuSwitcher" to="ReturnToMain" method="_on_menu_switcher_tab_changed"]
+[connection signal="pressed" from="MenuSwitcher/MainOptions/VBoxContainer/Continue b" to="." method="_on_continue_b_pressed"]
+[connection signal="visibility_changed" from="MenuSwitcher/MainOptions/VBoxContainer/Continue b" to="." method="_onContinueBVisibilityChanged"]
+[connection signal="pressed" from="MenuSwitcher/MainOptions/VBoxContainer/Options b" to="." method="_on_options_b_pressed"]
+[connection signal="pressed" from="MenuSwitcher/MainOptions/VBoxContainer/Restart b" to="." method="_on_restart_b_pressed"]
+[connection signal="pressed" from="MenuSwitcher/MainOptions/VBoxContainer/ExitToMenu b" to="." method="_on_exit_to_menu_b_pressed"]
+[connection signal="pressed" from="ReturnToMain" to="ReturnToMain" method="_on_pressed"]

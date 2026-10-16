@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://bjdgwg23lm1d4"]
+
+[ext_resource type="PackedScene" uid="uid://cy6kmby6mupvv" path="res://UI/InputRemap/ActionRemapButton.tscn" id="1"]
+
+[node name="InputRemapMenu" type="VBoxContainer" unique_id=1946076898]
+offset_right = 177.0
+offset_bottom = 211.0
+
+[node name="Instructions" type="Label" parent="." unique_id=395677269]
+layout_mode = 2
+text = "Press button then key"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Instructions2" type="Label" parent="." unique_id=1325956631]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "You can hold Alt, Ctrl, Shift, Win, Cmd"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1274192248]
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+
+[node name="ActionsList" type="VBoxContainer" parent="ScrollContainer" unique_id=693140064]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MoveLeft" type="HBoxContainer" parent="ScrollContainer/ActionsList" unique_id=1693936973]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ActionName" type="Label" parent="ScrollContainer/ActionsList/MoveLeft" unique_id=1199785371]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Action1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MoveLeftB" parent="ScrollContainer/ActionsList/MoveLeft" unique_id=1439777395 instance=ExtResource("1")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../../ZoomOut/ZoomOutB")
+focus_neighbor_right = NodePath("../../MoveRight/MoveRightB")
+focus_neighbor_bottom = NodePath("../../MoveRight/MoveRightB")
+focus_next = NodePath("../../MoveRight/MoveRightB")
+
+[node name="MoveRight" type="HBoxContainer" parent="ScrollContainer/ActionsList" unique_id=1507759426]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ActionName" type="Label" parent="ScrollContainer/ActionsList/MoveRight" unique_id=1572685177]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Action2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MoveRightB" parent="ScrollContainer/ActionsList/MoveRight" unique_id=812362428 instance=ExtResource("1")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../../MoveLeft/MoveLeftB")
+focus_neighbor_top = NodePath("../../MoveLeft/MoveLeftB")
+focus_previous = NodePath("../../MoveLeft/MoveLeftB")
+
+[node name="ZoomOut" type="HBoxContainer" parent="ScrollContainer/ActionsList" unique_id=1701405245]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ActionName" type="Label" parent="ScrollContainer/ActionsList/ZoomOut" unique_id=1010744678]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Action3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ZoomOutB" parent="ScrollContainer/ActionsList/ZoomOut" unique_id=1893657073 instance=ExtResource("1")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_neighbor_right = NodePath("../../MoveLeft/MoveLeftB")
+focus_neighbor_bottom = NodePath("../../MoveLeft/MoveLeftB")
+focus_next = NodePath("../../MoveLeft/MoveLeftB")

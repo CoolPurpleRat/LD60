@@ -1,0 +1,203 @@
+[gd_scene format=3 uid="uid://df6mw7twnrj52"]
+
+[ext_resource type="Script" uid="uid://dcdkhi3yuj2rl" path="res://UI/MainMenu/GamePreview/also_play.gd" id="1_32esh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_agf74"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_agf74"]
+bg_color = Color(1.1551381e-06, 0.6785767, 0.7401883, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l1rnm"]
+bg_color = Color(1.1551381e-06, 0.6785767, 0.7401883, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g0vj1"]
+bg_color = Color(1, 0.6901961, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gsf41"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rvbty"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aymnx"]
+bg_color = Color(1, 0.6901961, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="GDScript" id="GDScript_agf74"]
+resource_name = "screenShotList"
+script/source = "extends Button
+
+signal pressedButton(id:int)
+
+var id:int=0
+
+func _on_pressed() -> void:
+	emit_signal(\"pressedButton\", id)
+
+func setActive(isActive:bool=true)->void:
+	if isActive:
+		modulate=Color(1.0, 1.0, 1.0, 1.0)
+	else:
+		modulate=Color(1.0, 1.0, 1.0, 0.529)
+"
+
+[node name="Panel" type="Panel" unique_id=1225241536]
+custom_minimum_size = Vector2(200, 200)
+offset_top = 1.0
+offset_right = 252.0
+offset_bottom = 224.0
+focus_behavior_recursive = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_agf74")
+script = ExtResource("1_32esh")
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=181232154]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AlsoPlayText" type="Label" parent="VBoxContainer" unique_id=1612079674]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Also play"
+horizontal_alignment = 1
+
+[node name="GameTitle" type="Label" parent="VBoxContainer" unique_id=2006533356]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+text = "Sincerely, Damn Signal!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="GameButton" type="TextureButton" parent="VBoxContainer" unique_id=1697609512]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 130.375)
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 1
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="CycleScreenshotTimer" type="Timer" parent="." unique_id=181872103]
+unique_name_in_owner = true
+autostart = true
+
+[node name="CycleGameTimer" type="Timer" parent="." unique_id=1559556700]
+unique_name_in_owner = true
+wait_time = 8.0
+autostart = true
+
+[node name="ScreenshotList" type="HBoxContainer" parent="." unique_id=1553049341]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -126.0
+offset_top = -30.0
+offset_right = 126.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.5
+mouse_filter = 2
+
+[node name="NextGame" type="Button" parent="." unique_id=45743913]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = 33.0
+offset_bottom = 73.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_agf74")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_l1rnm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_g0vj1")
+
+[node name="PreviousGame" type="Button" parent="." unique_id=478582044]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 33.0
+offset_right = 40.0
+offset_bottom = 73.0
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_agf74")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_l1rnm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_g0vj1")
+
+[node name="ScreenshotButtonTemplate" type="Button" parent="." unique_id=1599647618]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0.58431375)
+layout_mode = 0
+offset_top = 193.0
+offset_right = 252.0
+offset_bottom = 223.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_gsf41")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rvbty")
+theme_override_styles/hover = SubResource("StyleBoxFlat_aymnx")
+script = SubResource("GDScript_agf74")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/GameButton" to="." method="_on_game_button_pressed"]
+[connection signal="timeout" from="CycleScreenshotTimer" to="." method="_on_cycle_screenshot_timer_timeout"]
+[connection signal="timeout" from="CycleGameTimer" to="." method="_on_cycle_game_timer_timeout"]
+[connection signal="pressed" from="NextGame" to="." method="_on_next_game_pressed"]
+[connection signal="pressed" from="PreviousGame" to="." method="_on_previous_game_pressed"]
+[connection signal="pressed" from="ScreenshotButtonTemplate" to="ScreenshotButtonTemplate" method="_on_pressed"]

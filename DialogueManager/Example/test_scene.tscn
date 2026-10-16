@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cq2bc3reeqk65"]
+
+[ext_resource type="Script" uid="uid://wbqnulyfdw0h" path="res://DialogueManager/Example/textLevel.gd" id="1_2bcll"]
+
+[node name="TextScene" type="Node2D" unique_id=787932441]
+script = ExtResource("1_2bcll")

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cy6kmby6mupvv"]
+
+[ext_resource type="Script" uid="uid://c5ohjrq858f42" path="res://UI/InputRemap/ActionRemapButton.gd" id="1"]
+
+[node name="ActionRemapButton" type="Button" unique_id=481508143]
+offset_right = 90.0
+offset_bottom = 30.0
+theme_override_font_sizes/font_size = 20
+toggle_mode = true
+autowrap_mode = 2
+script = ExtResource("1")

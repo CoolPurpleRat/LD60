@@ -1,0 +1,110 @@
+[gd_scene format=3 uid="uid://0n6sbo2lbt4c"]
+
+[ext_resource type="Theme" uid="uid://cdmbk6lshl8rb" path="res://UI/UIThemes.tres" id="1_44gpk"]
+[ext_resource type="PackedScene" uid="uid://b4th03c30cv03" path="res://UI/logo.tscn" id="2_0ieht"]
+[ext_resource type="PackedScene" uid="uid://y2g0ifgovmky" path="res://UI/MainMenu/Credits/license.tscn" id="3_fpdaq"]
+
+[sub_resource type="GDScript" id="GDScript_fpdaq"]
+resource_name = "Credits"
+script/source = "extends Panel
+
+@onready var logoRef: RichTextLabel = %Logo2
+@onready var creditsScrollRef: ScrollContainer = %CreditsScroll
+@onready var vboxRef: VBoxContainer = $CreditsScroll/VBoxContainer
+
+func _ready() -> void:
+	await get_tree().process_frame
+	for child in vboxRef.get_children():
+		if child is FoldableContainer:
+			child.connect(\"opened\", scrollTo)
+
+func _onVisibilityChanged() -> void:
+	if visible:
+		logoRef.grab_focus.call_deferred()
+		
+##Scroll to start of container when opened
+func scrollTo(container_position:Vector2)->void:
+	await get_tree().process_frame
+	creditsScrollRef.scroll_vertical=container_position.y
+"
+
+[sub_resource type="GDScript" id="GDScript_0ieht"]
+resource_name = "creditsClick"
+script/source = "extends RichTextLabel
+
+
+func _on_meta_clicked(meta: Variant) -> void:
+	OS.shell_open(meta)
+"
+
+[node name="Credits" type="Panel" unique_id=6934059]
+mouse_filter = 1
+script = SubResource("GDScript_fpdaq")
+metadata/_tab_index = 1
+
+[node name="CreditsScroll" type="ScrollContainer" parent="." unique_id=701919638]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 5.0
+offset_top = 1.0
+offset_right = 1156.0
+offset_bottom = 649.0
+theme = ExtResource("1_44gpk")
+follow_focus = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsScroll" unique_id=647098783]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Logo2" parent="CreditsScroll/VBoxContainer" unique_id=1001924774 instance=ExtResource("2_0ieht")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+focus_neighbor_top = NodePath("../GodotThirdLicense")
+focus_neighbor_right = NodePath("../Credits")
+focus_mode = 2
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 40
+theme_override_font_sizes/italics_font_size = 40
+
+[node name="Credits" type="RichTextLabel" parent="CreditsScroll/VBoxContainer" unique_id=120941621]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../Logo2")
+focus_mode = 2
+mouse_filter = 1
+theme = ExtResource("1_44gpk")
+bbcode_enabled = true
+text = "[b]Credits[/b]
+Persik[url=https://persivalko.itch.io/][img=40x40]res://UI/Elements/SiteIcons/itchio-textless-black.svg[/img][/url][url=https://www.youtube.com/@CoolPurpleRat][img=0x50]res://UI/Elements/SiteIcons/youtube-icon.png[/img][/url][url=https://bsky.app/profile/coolpurplerat.bsky.social][img=40x40]res://UI/Elements/SiteIcons/bluesky-icon.png[/img][/url]"
+fit_content = true
+horizontal_alignment = 1
+meta_underlined = false
+script = SubResource("GDScript_0ieht")
+metadata/_edit_lock_ = true
+
+[node name="UniversalTransition" parent="CreditsScroll/VBoxContainer" unique_id=1906145140 instance=ExtResource("3_fpdaq")]
+layout_mode = 2
+mouse_filter = 1
+title = "cashew-olddew -- Universal transition shader"
+LicenseFilePath = "res://Licences/UniversalTShader.txt"
+
+[node name="GodotLicense" parent="CreditsScroll/VBoxContainer" unique_id=605193494 instance=ExtResource("3_fpdaq")]
+layout_mode = 2
+focus_neighbor_right = NodePath("../GodotThirdLicense")
+mouse_filter = 1
+title = "Godot game engine"
+LicenseFilePath = "res://Licences/GODOT LICENSE.txt"
+
+[node name="GodotThirdLicense" parent="CreditsScroll/VBoxContainer" unique_id=617625045 instance=ExtResource("3_fpdaq")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../GodotLicense")
+focus_neighbor_right = NodePath("../Logo2")
+focus_neighbor_bottom = NodePath("../Logo2")
+mouse_filter = 1
+title = "Godot third party"
+LicenseFilePath = "res://Licences/GODOT THIRD PARTY COPYRIGHT.txt"
+
+[connection signal="visibility_changed" from="." to="." method="_onVisibilityChanged"]
+[connection signal="meta_clicked" from="CreditsScroll/VBoxContainer/Credits" to="CreditsScroll/VBoxContainer/Credits" method="_on_meta_clicked"]

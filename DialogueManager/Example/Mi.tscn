@@ -1,0 +1,207 @@
+[gd_scene format=3 uid="uid://ofc3m13qbure"]
+
+[ext_resource type="PackedScene" uid="uid://c4ngynjofceon" path="res://DialogueManager/Character/CharacterBase.tscn" id="1_alut6"]
+[ext_resource type="Script" uid="uid://br083t6pwkblu" path="res://TestingWorld/ExampleChar.gd" id="2_0kusd"]
+[ext_resource type="Texture2D" uid="uid://bscq0txshbqmp" path="res://TestingWorld/Mi.png" id="2_66gpq"]
+[ext_resource type="AudioStream" uid="uid://7x2mka04ll6g" path="res://TestingWorld/MiSound.wav" id="3_0kusd"]
+
+[sub_resource type="Animation" id="Animation_jtaf1"]
+resource_name = "Angry"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(307, 2, 106, 142)]
+}
+
+[sub_resource type="Animation" id="Animation_v2l6v"]
+resource_name = "Happy"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(452, 2, 106, 142)]
+}
+
+[sub_resource type="Animation" id="Animation_uv21m"]
+resource_name = "Normal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(163, 2, 106, 142)]
+}
+
+[sub_resource type="Animation" id="Animation_22v8m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(452, 2, 106, 142)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tedwx"]
+_data = {
+&"Angry": SubResource("Animation_jtaf1"),
+&"Happy": SubResource("Animation_v2l6v"),
+&"Normal": SubResource("Animation_uv21m"),
+&"RESET": SubResource("Animation_22v8m")
+}
+
+[sub_resource type="Animation" id="Animation_alut6"]
+resource_name = "NoTalk"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_66gpq"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_0kusd"]
+resource_name = "Talk"
+length = 0.2
+loop_mode = 2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.016666668, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.8125, -0.016666668, 0.03125, 0, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(2),
+"points": PackedFloat32Array(0, 0, 0, 0.016666668, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(2),
+"points": PackedFloat32Array(0, 0, 0, 0.016666668, -9.333334),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TalkSFX:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1005234, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jtaf1"]
+_data = {
+&"NoTalk": SubResource("Animation_alut6"),
+&"RESET": SubResource("Animation_66gpq"),
+&"Talk": SubResource("Animation_0kusd")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4f2j"]
+atlas = ExtResource("2_66gpq")
+region = Rect2(452, 2, 106, 142)
+filter_clip = true
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0kusd"]
+random_pitch = 1.7817973
+streams_count = 1
+stream_0/stream = ExtResource("3_0kusd")
+
+[node name="Mi" unique_id=1714362515 instance=ExtResource("1_alut6")]
+scale = Vector2(2, 2)
+script = ExtResource("2_0kusd")
+charName = &"Mi"
+displayName = &"Mi"
+talkSound = ExtResource("3_0kusd")
+
+[node name="PortraitAnim" type="AnimationPlayer" parent="." index="0" unique_id=965991574]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_tedwx")
+autoplay = &"Normal"
+
+[node name="TalkingAnim" type="AnimationPlayer" parent="." index="1" unique_id=1536712375]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_jtaf1")
+autoplay = &"NoTalk"
+
+[node name="Sprite" type="Sprite2D" parent="." index="2" unique_id=1892936163]
+texture_filter = 1
+texture = SubResource("AtlasTexture_l4f2j")
+offset = Vector2(0, -72)
+
+[node name="TalkSFX" parent="." index="3" unique_id=1583683606]
+stream = SubResource("AudioStreamRandomizer_0kusd")

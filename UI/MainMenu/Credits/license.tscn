@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://y2g0ifgovmky"]
+
+[ext_resource type="Script" uid="uid://bhohceyp57kpd" path="res://UI/MainMenu/Credits/License.gd" id="1_1u8ta"]
+
+[node name="License" type="FoldableContainer" unique_id=1959557158]
+offset_right = 141.0
+offset_bottom = 68.0
+size_flags_horizontal = 3
+folded = true
+title = "Author -- Asset"
+script = ExtResource("1_1u8ta")
+
+[node name="LicenseText" type="RichTextLabel" parent="." unique_id=331533702]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+focus_neighbor_left = NodePath("..")
+focus_mode = 2
+
+[connection signal="folding_changed" from="." to="." method="_onFoldingChanged"]
+[connection signal="visibility_changed" from="." to="." method="_onVisibilityChanged"]

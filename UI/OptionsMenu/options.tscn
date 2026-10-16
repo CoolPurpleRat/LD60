@@ -1,0 +1,388 @@
+[gd_scene format=3 uid="uid://ldnfsf3asf3c"]
+
+[ext_resource type="Script" uid="uid://bq1wb3nay8l1y" path="res://UI/OptionsMenu/options.gd" id="1_a27uc"]
+[ext_resource type="PackedScene" uid="uid://bqjujnyl2kxqc" path="res://UI/OptionsMenu/ResolutionChoose/resolution_choose.tscn" id="2_g1tf0"]
+[ext_resource type="Theme" uid="uid://cdmbk6lshl8rb" path="res://UI/UIThemes.tres" id="2_v7uto"]
+[ext_resource type="PackedScene" uid="uid://bjdgwg23lm1d4" path="res://UI/InputRemap/InputRemapMenu.tscn" id="3_3hbg6"]
+
+[node name="Options" type="Control" unique_id=721165324]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_a27uc")
+
+[node name="TabContainer" type="TabContainer" parent="." unique_id=430154739]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 154.0
+offset_top = 36.0
+offset_right = -82.0
+offset_bottom = -46.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_v7uto")
+current_tab = 4
+tab_3/title = "Mobile"
+
+[node name="Audio" type="ScrollContainer" parent="TabContainer" unique_id=1712802647]
+visible = false
+layout_mode = 2
+follow_focus = true
+draw_focus_border = true
+metadata/_tab_index = 0
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Audio" unique_id=133262960]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+
+[node name="TurnOffSound_l" type="Label" parent="TabContainer/Audio/GridContainer" unique_id=628968840]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_v7uto")
+text = "Turn off audio"
+
+[node name="TurnOffSound_b" type="CheckBox" parent="TabContainer/Audio/GridContainer" unique_id=1068731463 groups=["UIButton"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+focus_neighbor_left = NodePath("../../..")
+focus_neighbor_top = NodePath("../..")
+focus_neighbor_right = NodePath("../Sound_Slider")
+focus_neighbor_bottom = NodePath("../Sound_Slider")
+focus_next = NodePath("../Sound_Slider")
+focus_previous = NodePath("../../..")
+theme = ExtResource("2_v7uto")
+theme_override_colors/checkbox_unchecked_color = Color(18.892157, 18.892157, 18.892157, 1)
+icon_alignment = 2
+
+[node name="Sound_L" type="Label" parent="TabContainer/Audio/GridContainer" unique_id=1567873140]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_v7uto")
+text = "Master volume"
+
+[node name="Sound_Slider" type="HSlider" parent="TabContainer/Audio/GridContainer" unique_id=84061564]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+focus_neighbor_left = NodePath("../TurnOffSound_b")
+focus_neighbor_top = NodePath("../TurnOffSound_b")
+focus_neighbor_right = NodePath("../Music_Slider")
+focus_neighbor_bottom = NodePath("../Music_Slider")
+focus_next = NodePath("../Music_Slider")
+focus_previous = NodePath("../TurnOffSound_b")
+theme = ExtResource("2_v7uto")
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Music_l" type="Label" parent="TabContainer/Audio/GridContainer" unique_id=419415620]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_v7uto")
+text = "Music"
+
+[node name="Music_Slider" type="HSlider" parent="TabContainer/Audio/GridContainer" unique_id=1052258279]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+focus_neighbor_left = NodePath("../Sound_Slider")
+focus_neighbor_top = NodePath("../Sound_Slider")
+focus_neighbor_right = NodePath("../SFX_Slider")
+focus_neighbor_bottom = NodePath("../SFX_Slider")
+focus_next = NodePath("../SFX_Slider")
+focus_previous = NodePath("../Sound_Slider")
+theme = ExtResource("2_v7uto")
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="SFX_l" type="Label" parent="TabContainer/Audio/GridContainer" unique_id=1516682518]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_v7uto")
+text = "SFX"
+
+[node name="SFX_Slider" type="HSlider" parent="TabContainer/Audio/GridContainer" unique_id=1456116754]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+focus_neighbor_left = NodePath("../Music_Slider")
+focus_neighbor_top = NodePath("../Music_Slider")
+focus_neighbor_right = NodePath("../TurnOffSound_b")
+focus_neighbor_bottom = NodePath("../TurnOffSound_b")
+focus_next = NodePath("../TurnOffSound_b")
+focus_previous = NodePath("../Music_Slider")
+theme = ExtResource("2_v7uto")
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Video" type="ScrollContainer" parent="TabContainer" unique_id=815945228]
+visible = false
+layout_mode = 2
+follow_focus = true
+draw_focus_border = true
+metadata/_tab_index = 1
+
+[node name="VideoSettings" type="GridContainer" parent="TabContainer/Video" unique_id=979303588]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+
+[node name="FullScreen_L" type="Label" parent="TabContainer/Video/VideoSettings" unique_id=703573519]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_v7uto")
+text = "Screen mode"
+autowrap_mode = 3
+
+[node name="FullScreen_B" type="OptionButton" parent="TabContainer/Video/VideoSettings" unique_id=587866049 groups=["UIButton"]]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../../..")
+focus_neighbor_top = NodePath("../../..")
+focus_neighbor_right = NodePath("../ResolutionChoose/X spin")
+focus_neighbor_bottom = NodePath("../ResolutionChoose/X spin")
+focus_next = NodePath("../ResolutionChoose/X spin")
+focus_previous = NodePath("../../..")
+theme = ExtResource("2_v7uto")
+alignment = 1
+autowrap_mode = 3
+selected = 0
+item_count = 3
+popup/item_0/text = "Fullscreen"
+popup/item_0/id = 0
+popup/item_1/text = "In window"
+popup/item_1/id = 1
+popup/item_2/text = "Exclusive fullscreen"
+popup/item_2/id = 2
+
+[node name="Resolution_L" type="Label" parent="TabContainer/Video/VideoSettings" unique_id=2019681514]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_v7uto")
+text = "Resolution"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ResolutionChoose" parent="TabContainer/Video/VideoSettings" unique_id=782580851 instance=ExtResource("2_g1tf0")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="X spin" parent="TabContainer/Video/VideoSettings/ResolutionChoose" index="0" unique_id=1781737021]
+focus_neighbor_left = NodePath("../../FullScreen_B")
+focus_neighbor_top = NodePath("../../FullScreen_B")
+focus_neighbor_bottom = NodePath("../../VSyns_drop")
+focus_previous = NodePath("../../FullScreen_B")
+
+[node name="Y spin" parent="TabContainer/Video/VideoSettings/ResolutionChoose" index="1" unique_id=993352057]
+focus_neighbor_top = NodePath("../../FullScreen_B")
+focus_neighbor_bottom = NodePath("../../VSyns_drop")
+
+[node name="Button" parent="TabContainer/Video/VideoSettings/ResolutionChoose" index="2" unique_id=146294014]
+focus_neighbor_top = NodePath("../../FullScreen_B")
+focus_neighbor_right = NodePath("../../VSyns_drop")
+focus_neighbor_bottom = NodePath("../../VSyns_drop")
+focus_next = NodePath("../../VSyns_drop")
+focus_previous = NodePath("../Y spin")
+
+[node name="VSyns_l" type="Label" parent="TabContainer/Video/VideoSettings" unique_id=2063129966]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_v7uto")
+text = "V-Syns"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="VSyns_drop" type="OptionButton" parent="TabContainer/Video/VideoSettings" unique_id=1984863890 groups=["UIButton"]]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+focus_neighbor_left = NodePath("../ResolutionChoose/Button")
+focus_neighbor_top = NodePath("../ResolutionChoose/Button")
+focus_neighbor_right = NodePath("../FullScreen_B")
+focus_neighbor_bottom = NodePath("../FullScreen_B")
+focus_next = NodePath("../FullScreen_B")
+focus_previous = NodePath("../ResolutionChoose/Button")
+theme = ExtResource("2_v7uto")
+alignment = 1
+autowrap_mode = 3
+selected = 0
+item_count = 4
+popup/item_0/text = "Yes"
+popup/item_0/id = 0
+popup/item_1/text = "No"
+popup/item_1/id = 1
+popup/item_2/text = "Adaptive"
+popup/item_2/id = 2
+popup/item_3/text = "Mailbox"
+popup/item_3/id = 3
+
+[node name="Input" parent="TabContainer" unique_id=309692227 instance=ExtResource("3_3hbg6")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="MobileInput" type="ScrollContainer" parent="TabContainer" unique_id=906794092]
+visible = false
+layout_mode = 2
+follow_focus = true
+draw_focus_border = true
+metadata/_tab_index = 3
+metadata/_tab_name = "Mobile"
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/MobileInput" unique_id=672351998]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+
+[node name="ScreenTouchVisibility_l" type="Label" parent="TabContainer/MobileInput/GridContainer" unique_id=1282201033]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_v7uto")
+text = "Видимість кнопок"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ScreenTouchVisibility_Slider" type="HSlider" parent="TabContainer/MobileInput/GridContainer" unique_id=980396804]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(311.26, 0)
+layout_mode = 2
+size_flags_vertical = 1
+focus_neighbor_left = NodePath("../../..")
+focus_neighbor_top = NodePath("../../..")
+theme = ExtResource("2_v7uto")
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Game" type="ScrollContainer" parent="TabContainer" unique_id=714431292]
+layout_mode = 2
+follow_focus = true
+draw_focus_border = true
+metadata/_tab_index = 4
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Game" unique_id=1735928396]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+
+[node name="Label" type="Label" parent="TabContainer/Game/GridContainer" unique_id=850331551]
+visible = false
+layout_mode = 2
+text = "Мова"
+
+[node name="LanguageSwitch" type="Button" parent="TabContainer/Game/GridContainer" unique_id=1301190497 groups=["UIButton"]]
+visible = false
+layout_mode = 2
+focus_neighbor_left = NodePath("../../..")
+focus_neighbor_top = NodePath("../..")
+focus_previous = NodePath("../../..")
+theme = ExtResource("2_v7uto")
+text = "Українська"
+
+[node name="HSeparator2" type="HSeparator" parent="TabContainer/Game/GridContainer" unique_id=1046988019]
+visible = false
+custom_minimum_size = Vector2(0, 54.885)
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="TabContainer/Game/GridContainer" unique_id=955022922]
+visible = false
+layout_mode = 2
+
+[node name="HSeparator3" type="HSeparator" parent="TabContainer/Game/GridContainer" unique_id=277835303]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 54.885)
+layout_mode = 2
+
+[node name="HSeparator4" type="HSeparator" parent="TabContainer/Game/GridContainer" unique_id=552365582]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="DeleteConfig_l" type="Label" parent="TabContainer/Game/GridContainer" unique_id=1297999862]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 1, 0, 1)
+theme_override_constants/outline_size = 10
+text = "Delete config(requires relaunch)"
+autowrap_mode = 2
+
+[node name="DeleteConfig_b" type="Button" parent="TabContainer/Game/GridContainer" unique_id=1535328569 groups=["UIButton"]]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_bottom = NodePath("../DeleteProgress_b")
+focus_next = NodePath("../DeleteProgress_b")
+
+[node name="HSeparator5" type="HSeparator" parent="TabContainer/Game/GridContainer" unique_id=948162221]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 54.885)
+layout_mode = 2
+
+[node name="HSeparator6" type="HSeparator" parent="TabContainer/Game/GridContainer" unique_id=1310126845]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="DeleteProgress_l" type="Label" parent="TabContainer/Game/GridContainer" unique_id=167659867]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 1, 0, 1)
+text = "Видалити прогрес"
+autowrap_mode = 3
+
+[node name="DeleteProgress_b" type="Button" parent="TabContainer/Game/GridContainer" unique_id=1829240749 groups=["UIButton"]]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../DeleteConfig_b")
+focus_neighbor_top = NodePath("../DeleteConfig_b")
+focus_neighbor_right = NodePath("../LanguageSwitch")
+focus_neighbor_bottom = NodePath("../LanguageSwitch")
+focus_next = NodePath("../LanguageSwitch")
+focus_previous = NodePath("../DeleteConfig_b")
+
+[node name="AudioTest" type="AudioStreamPlayer" parent="." unique_id=475815272]
+unique_name_in_owner = true
+
+[connection signal="hidden" from="." to="." method="_on_hidden"]
+[connection signal="visibility_changed" from="." to="." method="_onVisibilityChanged"]
+[connection signal="tab_clicked" from="TabContainer" to="." method="_onTabContainerTabClicked"]
+[connection signal="toggled" from="TabContainer/Audio/GridContainer/TurnOffSound_b" to="." method="_on_turn_off_sound_b_toggled"]
+[connection signal="drag_ended" from="TabContainer/Audio/GridContainer/Sound_Slider" to="." method="_onSoundSliderDragEnded"]
+[connection signal="drag_ended" from="TabContainer/Audio/GridContainer/Music_Slider" to="." method="_onMusicSliderDragEnded"]
+[connection signal="drag_ended" from="TabContainer/Audio/GridContainer/SFX_Slider" to="." method="_onSfxSliderDragEnded"]
+[connection signal="item_selected" from="TabContainer/Video/VideoSettings/FullScreen_B" to="." method="_on_full_screen_b_item_selected"]
+[connection signal="resolutionChange" from="TabContainer/Video/VideoSettings/ResolutionChoose" to="." method="_on_resolution_choose_resolution_change"]
+[connection signal="item_selected" from="TabContainer/Video/VideoSettings/VSyns_drop" to="." method="_on_v_syns_drop_item_selected"]
+[connection signal="value_changed" from="TabContainer/MobileInput/GridContainer/ScreenTouchVisibility_Slider" to="." method="_on_screen_touch_visibility_slider_value_changed"]
+[connection signal="pressed" from="TabContainer/Game/GridContainer/LanguageSwitch" to="." method="_onLanguageSwitchPressed"]
+[connection signal="pressed" from="TabContainer/Game/GridContainer/DeleteConfig_b" to="." method="_onDeleteConfigBPressed"]
+[connection signal="pressed" from="TabContainer/Game/GridContainer/DeleteProgress_b" to="." method="_on_delete_progress_b_pressed"]
+
+[editable path="TabContainer/Video/VideoSettings/ResolutionChoose"]

@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://b0uga4vqrfyok"]
+
+[ext_resource type="Theme" uid="uid://cdmbk6lshl8rb" path="res://UI/UIThemes.tres" id="1_tkjhy"]
+[ext_resource type="Script" uid="uid://djrktg7qdeyxo" path="res://UI/version.gd" id="2_r8hh6"]
+[ext_resource type="Script" uid="uid://bhjsk0kv2cx00" path="res://UI/Elements/animatedButton.gd" id="3_r8hh6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yf0l7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yf0l7"]
+bg_color = Color(0.11211771, 0.125, 0, 1)
+
+[node name="ShowChangelog" type="Button" unique_id=1782386680]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -60.0
+offset_right = 262.0
+grow_vertical = 0
+theme = ExtResource("1_tkjhy")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yf0l7")
+text = "v0.0"
+autowrap_mode = 2
+script = ExtResource("2_r8hh6")
+
+[node name="Changelog" type="RichTextLabel" parent="." unique_id=463120651]
+unique_name_in_owner = true
+visible = false
+top_level = true
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+focus_neighbor_right = NodePath("CloseChangelog")
+focus_next = NodePath("CloseChangelog")
+focus_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_yf0l7")
+text = "Changelog"
+
+[node name="CloseChangelog" type="Button" parent="Changelog" unique_id=497844609]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -72.0
+offset_bottom = 72.0
+grow_horizontal = 0
+script = ExtResource("3_r8hh6")
+
+[connection signal="pressed" from="." to="." method="_onPressed"]
+[connection signal="pressed" from="Changelog/CloseChangelog" to="." method="_onCloseChangelogPressed"]

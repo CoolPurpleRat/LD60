@@ -1,0 +1,74 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="LD60"
+run/main_scene="uid://dcngewtne5cj0"
+config/features=PackedStringArray("4.8", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://chv7np8s2h3xb"
+
+[autoload]
+
+MusicSystem="*uid://ct5iecnha1tt6"
+SaveManager="*uid://bqwukv5hvxf8e"
+KeyPersistence="*uid://dd6jkxv7lxg3o"
+DM="*uid://dgqgm8fk1arh"
+PopupManager="*uid://cg7qqmlvtfy6s"
+
+[debug]
+
+gdscript/warnings/untyped_declaration=1
+gdscript/warnings/integer_division=0
+gdscript/warnings/narrowing_conversion=0
+
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="ignore"
+
+[editor]
+
+movie_writer/ogv/encoding_speed=1
+movie_writer/movie_file="D:/Видео/backgroundAnimated.ogv"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/cheatsheet_viewer/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://Audio/": "blue",
+"res://Icon/": "green",
+"res://Levels/": "yellow",
+"res://Objects/": "red",
+"res://Shaders/": "teal",
+"res://SystemObjects/": "gray",
+"res://Translation/": "gray",
+"res://UI/": "red",
+"res://addons/cheatsheet_viewer/": "gray",
+"res://things for kickstart/": "orange"
+}
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
