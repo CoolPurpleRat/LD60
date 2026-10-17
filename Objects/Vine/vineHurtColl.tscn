@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://dlpabhcdpbk8w"]
+
+[ext_resource type="Script" uid="uid://c43ydck247q8u" path="res://Objects/Vine/lazerReceiver.gd" id="1_11ukf"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xjjeb"]
+radius = 0.746336
+
+[sub_resource type="Gradient" id="Gradient_11ukf"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6r8p7"]
+gradient = SubResource("Gradient_11ukf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8x6g7"]
+direction = Vector3(0, 1, 0)
+initial_velocity_max = 6.5
+gravity = Vector3(0, 1, 0)
+radial_accel_min = -58.82
+radial_accel_max = 67.96999
+color_ramp = SubResource("GradientTexture1D_6r8p7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xjjeb"]
+shading_mode = 0
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_y5i2a"]
+material = SubResource("StandardMaterial3D_xjjeb")
+
+[node name="VineHurtColl" type="StaticBody3D" unique_id=824741653]
+script = ExtResource("1_11ukf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1038947123]
+shape = SubResource("SphereShape3D_xjjeb")
+
+[node name="FireTimer" type="Timer" parent="." unique_id=1619740088]
+unique_name_in_owner = true
+wait_time = 2.0
+one_shot = true
+
+[node name="UnhurtTimer" type="Timer" parent="." unique_id=927154194]
+unique_name_in_owner = true
+wait_time = 3.0
+one_shot = true
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=1793924871]
+visible = false
+
+[node name="OuchPartc" type="GPUParticles3D" parent="." unique_id=98925715]
+unique_name_in_owner = true
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_8x6g7")
+draw_pass_1 = SubResource("SphereMesh_y5i2a")
+
+[connection signal="timeout" from="FireTimer" to="." method="_on_fire_timer_timeout"]
+[connection signal="timeout" from="UnhurtTimer" to="." method="_on_unhurt_timer_timeout"]

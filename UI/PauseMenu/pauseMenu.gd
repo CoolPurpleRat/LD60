@@ -11,6 +11,7 @@ func _on_continue_b_pressed() -> void:
 	get_tree().paused=false
 	visible=false
 	#MobileButtons.setVisibility(true)
+	Input.set_mouse_mode(Input.MouseMode.MOUSE_MODE_CAPTURED)
 
 func setActive()->void:
 	get_tree().paused=true

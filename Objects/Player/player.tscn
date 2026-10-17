@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://cjex72ml1uf40"]
+
+[ext_resource type="Script" uid="uid://dgd6qtjacjtr" path="res://Objects/Player/player.gd" id="1_156m4"]
+[ext_resource type="AudioStream" uid="uid://b64gad7g3gtid" path="res://Audio/Sfx/Fire.mp3" id="2_yw17q"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cljdu"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_156m4"]
+size = Vector3(0.1, 0.1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_156m4"]
+shading_mode = 0
+disable_ambient_light = true
+albedo_color = Color(0.9685872, 5.679429e-06, 7.70092e-07, 1)
+disable_receive_shadows = true
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_x3db5"]
+
+[node name="Player" type="CharacterBody3D" unique_id=1525188872]
+script = ExtResource("1_156m4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1522753996]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0045325, 0)
+shape = SubResource("CapsuleShape3D_cljdu")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1692697501]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8361582, -0.33262968)
+
+[node name="LazerCast" type="RayCast3D" parent="Camera3D" unique_id=1811045491]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18204701, -0.17906195)
+target_position = Vector3(0, 0, -100)
+
+[node name="LazerMeshPivot" type="Node3D" parent="Camera3D" unique_id=1820430836]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8923501, -1.0738127, -0.5000001)
+
+[node name="LazerMesh" type="MeshInstance3D" parent="Camera3D/LazerMeshPivot" unique_id=586962635]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_156m4")
+surface_material_override/0 = SubResource("StandardMaterial3D_156m4")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=399303830]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8361582, -0.2762432)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1182394552]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99598634, 0)
+mesh = SubResource("CapsuleMesh_x3db5")
+
+[node name="Fire" type="AudioStreamPlayer3D" parent="." unique_id=1380538367]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8680927, 0.6909265, -0.8795657)
+stream = ExtResource("2_yw17q")
+
+[node name="AudioListener3D" type="AudioListener3D" parent="." unique_id=1519816460]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.799696, 0)
+current = true
