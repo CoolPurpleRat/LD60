@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://11pfvx6dkw6r"
+path="res://.godot/imported/Buy a ticket, please.mp3-4146c28a5e29a7b192dac65004011706.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/Buy a ticket, please.mp3"
+dest_files=["res://.godot/imported/Buy a ticket, please.mp3-4146c28a5e29a7b192dac65004011706.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

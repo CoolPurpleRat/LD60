@@ -11,6 +11,8 @@ const JUMP_VELOCITY = 4.5
 @onready var lazerCastRef: RayCast3D = %LazerCast
 @onready var lazerMeshRef: Node3D = %LazerMeshPivot
 @onready var lazerSFXRef: AudioStreamPlayer3D = %Fire
+@onready var rightHandAnimRef: AnimationPlayer = %RightHandAnim
+@onready var lazerEndRef: Node3D = %LazerEnd
 
 
 func _ready() -> void:
@@ -59,26 +61,37 @@ var lazeredBody:WeakRef
 func _lazerProc()->void:
 	
 	if Input.is_action_pressed(&"Shoot"):
+		rightHandAnimRef.play(&"Fire")
 		if lazerCastRef.is_colliding():
-			MusicSystem.playSfx(lazerSFXRef, 0.5, 0.8)
-			var laserPoint:=lazerCastRef.get_collision_point()
-			lazerMeshRef.visible=true
-			lazerMeshRef.look_at(laserPoint, Vector3(0,1,0))
-			lazerMeshRef.scale.z=global_position.distance_to(laserPoint)
-			
+			lazerAnim()
 			lazeredBody=weakref(lazerCastRef.get_collider())
 			if isCanLazerBody():
 				lazeredBody.get_ref().lazered()
 		else:
+			lazerAnim(false)
 			if isCanLazerBody():
 				lazeredBody.get_ref().lazered(false)
-			lazerSFXRef.stop()
-			lazerMeshRef.visible=false
 	elif Input.is_action_just_released(&"Shoot"):
 		if isCanLazerBody():
 			lazeredBody.get_ref().lazered(false)
+		lazerAnim(false)
+		
+func lazerAnim(on:=true)->void:
+	if not on:
+		rightHandAnimRef.play(&"Idle")
 		lazerSFXRef.stop()
 		lazerMeshRef.visible=false
+		lazerEndRef.visible=false
+	else:
+		rightHandAnimRef.play(&"Fire")
+		lazerMeshRef.visible=true
+		lazerEndRef.visible=true
+		
+		MusicSystem.playSfx(lazerSFXRef, 0.5, 0.8)
+		var laserPoint:=lazerCastRef.get_collision_point()
+		lazerMeshRef.look_at(laserPoint, Vector3(0,1,0))
+		lazerMeshRef.scale.z=lazerMeshRef.global_position.distance_to(laserPoint)
+		lazerEndRef.global_position=laserPoint
 
 func isCanLazerBody()->bool:
 	if lazeredBody and lazeredBody.get_ref() and lazeredBody.get_ref().has_method("lazered"):

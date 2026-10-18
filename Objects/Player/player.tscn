@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cjex72ml1uf40"]
 
 [ext_resource type="Script" uid="uid://dgd6qtjacjtr" path="res://Objects/Player/player.gd" id="1_156m4"]
+[ext_resource type="PackedScene" uid="uid://b7t8nvbxiivfq" path="res://Objects/Player/Hand/handModel.tscn" id="2_l2ya6"]
+[ext_resource type="Script" uid="uid://bg4i7xls1hyli" path="res://Objects/Player/handsCamera.gd" id="2_o1rty"]
 [ext_resource type="AudioStream" uid="uid://b64gad7g3gtid" path="res://Audio/Sfx/Fire.mp3" id="2_yw17q"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cljdu"]
@@ -9,12 +11,206 @@
 size = Vector3(0.1, 0.1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_156m4"]
+render_priority = 10
 shading_mode = 0
 disable_ambient_light = true
 albedo_color = Color(0.9685872, 5.679429e-06, 7.70092e-07, 1)
 disable_receive_shadows = true
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_x3db5"]
+
+[sub_resource type="Animation" id="Animation_l2ya6"]
+resource_name = "Fire"
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:ArmBase")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.429413, -0.377444, 0.470889, 0.671867)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:ArmSecond")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.573439, -0.095961, -0.134284, 0.80245)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:Palm")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, -0.071475, -0.001809, -0.02524, 0.997121)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:IndexFinger")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0.20745192, -0.015347996, 0.041556988, 0.9772416)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:MiddleFing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0.20769392, -0.009558995, 0.041141987, 0.9772816)
+tracks/5/type = "rotation_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:Pinky")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, 0.207721, -0.008941001, 0.04589601, 0.97707)
+tracks/6/type = "rotation_3d"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:RingFing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, 0.20794399, -0.0045510014, 0.048217997, 0.97694093)
+tracks/7/type = "rotation_3d"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:Thumb")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, 0.19004297, 0.08537498, -0.4558499, 0.86532986)
+
+[sub_resource type="Animation" id="Animation_o1rty"]
+resource_name = "Idle"
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:ArmBase")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.639462, -0.288084, 0.390757, 0.596158)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:ArmSecond")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.160732, 0.041119, -0.24441, 0.955373)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:Palm")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.185607, 0.004698, -0.024865, 0.982298)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:IndexFinger")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0.207452, -0.015348, 0.041557, 0.977242)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:MiddleFing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0.207694, -0.009559, 0.041142, 0.977282)
+tracks/5/type = "rotation_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:Pinky")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, 0.207721, -0.008941, 0.045896, 0.97707)
+tracks/6/type = "rotation_3d"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:RingFing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, 0.207944, -0.004551, 0.048218, 0.976941)
+tracks/7/type = "rotation_3d"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:Thumb")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, 0.190043, 0.085375, -0.45585, 0.86533)
+
+[sub_resource type="Animation" id="Animation_t45n6"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:Palm")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.071475, -0.001809, -0.02524, 0.997121)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:IndexFinger")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.20745192, -0.015347996, 0.041556988, 0.9772416)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:MiddleFing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.20769392, -0.009558995, 0.041141987, 0.9772816)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:Pinky")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0.207721, -0.008941001, 0.04589601, 0.97707)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:RingFing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0.20794399, -0.0045510014, 0.048217997, 0.97694093)
+tracks/5/type = "rotation_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:Thumb")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, 0.19004297, 0.08537498, -0.4558499, 0.86532986)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t45n6"]
+_data = {
+&"Fire": SubResource("Animation_l2ya6"),
+&"Idle": SubResource("Animation_o1rty"),
+&"RESET": SubResource("Animation_t45n6")
+}
+
+[sub_resource type="Gradient" id="Gradient_o1rty"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_t45n6"]
+gradient = SubResource("Gradient_o1rty")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_o1rty"]
+direction = Vector3(0, 1, 0)
+initial_velocity_max = 6.5
+gravity = Vector3(0, 1, 0)
+radial_accel_min = -58.82
+radial_accel_max = -37.850002
+scale_min = 0.099999994
+scale_max = 0.5
+color_ramp = SubResource("GradientTexture1D_t45n6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xjjeb"]
+shading_mode = 0
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_u7612"]
+material = SubResource("StandardMaterial3D_xjjeb")
 
 [node name="Player" type="CharacterBody3D" unique_id=1525188872]
 script = ExtResource("1_156m4")
@@ -25,21 +221,90 @@ shape = SubResource("CapsuleShape3D_cljdu")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1692697501]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8361582, -0.33262968)
+cull_mask = 1048573
+current = true
 
 [node name="LazerCast" type="RayCast3D" parent="Camera3D" unique_id=1811045491]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18204701, -0.17906195)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0008074045, -0.013024718)
 target_position = Vector3(0, 0, -100)
 
-[node name="LazerMeshPivot" type="Node3D" parent="Camera3D" unique_id=1820430836]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8923501, -1.0738127, -0.5000001)
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Camera3D" unique_id=1749013334]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
 
-[node name="LazerMesh" type="MeshInstance3D" parent="Camera3D/LazerMeshPivot" unique_id=586962635]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+[node name="SubViewport" type="SubViewport" parent="Camera3D/SubViewportContainer" unique_id=527378046]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="Camera3D/SubViewportContainer/SubViewport" unique_id=1623224606 node_paths=PackedStringArray("playerCamera")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5591621, 0)
+cull_mask = 2
+script = ExtResource("2_o1rty")
+playerCamera = NodePath("../../..")
+metadata/_edit_lock_ = true
+
+[node name="RightHand" parent="Camera3D/SubViewportContainer/SubViewport/Camera3D" unique_id=1064891409 instance=ExtResource("2_l2ya6")]
+transform = Transform3D(0.009340707, -0.23481429, 0, 0.23481429, 0.009340707, 0, 0, 0, 0.235, 2.309, -0.918, -1.85)
+
+[node name="Armature" parent="Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand" index="0" unique_id=2055166266]
+metadata/_edit_lock_ = true
+
+[node name="Skeleton3D" parent="Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature" index="0" unique_id=1701069313]
+bones/0/rotation = Quaternion(-0.42941275, -0.37744373, 0.47088873, 0.6718667)
+bones/1/rotation = Quaternion(-0.57343936, -0.095961064, -0.13428406, 0.80245036)
+bones/2/rotation = Quaternion(-0.07147504, -0.0018090007, -0.025240008, 0.9971214)
+bones/3/rotation = Quaternion(0.20745195, -0.015347999, 0.041556995, 0.97724164)
+bones/4/rotation = Quaternion(0.20769395, -0.009558996, 0.041141987, 0.97728163)
+bones/5/rotation = Quaternion(0.207721, -0.008941002, 0.045896016, 0.97707)
+bones/6/rotation = Quaternion(0.20794402, -0.0045510014, 0.048217997, 0.976941)
+bones/7/rotation = Quaternion(0.19004297, 0.08537499, -0.45584986, 0.86532986)
+
+[node name="Hand" parent="Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D" index="0" unique_id=2048120784]
+transform = Transform3D(1, -7.450581e-09, 0, 7.450581e-09, 1, 0, 0, 0, 1, 0.017483711, -0.43952036, 0)
+layers = 2
+sorting_offset = -90.0
+metadata/_edit_lock_ = true
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D" index="1" unique_id=1103405888]
+bone_name = "Palm"
+bone_idx = 2
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D/BoneAttachment3D" unique_id=1865517322]
+transform = Transform3D(1, -2.0265581e-08, 2.0265585e-08, 2.0265581e-08, 1, -4.053116e-08, -2.0265585e-08, 4.053116e-08, 1, -0.2868986, 0.7711792, 1.2512512)
+light_color = Color(1, 0, 0, 1)
+omni_range = 0.632
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D/BoneAttachment3D" unique_id=415621404]
+transform = Transform3D(1, -5.9604645e-08, -5.9604645e-08, 1.4901161e-08, 1, 5.9604645e-08, -5.9604645e-08, -2.9802322e-08, 1, -0.5698776, 1.4898453, 1.1091356)
+remote_path = NodePath("../../../../../LazerMeshPivot")
+update_rotation = false
+update_scale = false
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Camera3D/SubViewportContainer/SubViewport/Camera3D" unique_id=1288644642]
+transform = Transform3D(0.9415891, -0.25586087, -0.21896394, 0.33676398, 0.71538466, 0.61222124, 0, -0.65020007, 0.75976306, 1.0457791, 2.3095846, 0.36502528)
+layers = 2
+light_energy = 8.365
+light_cull_mask = 4293918722
+
+[node name="LazerMeshPivot" type="Node3D" parent="Camera3D/SubViewportContainer/SubViewport/Camera3D" unique_id=1820430836]
+unique_name_in_owner = true
+transform = Transform3D(2.7288225, -0.40912145, -0.17246509, 0.39882925, 2.7306688, -0.16723323, 0.19508958, 0.14018351, 2.7542481, 1.4926057, -0.20926869, -3.3404188)
+visible = false
+
+[node name="LazerMesh" type="MeshInstance3D" parent="Camera3D/SubViewportContainer/SubViewport/Camera3D/LazerMeshPivot" unique_id=586962635]
+transform = Transform3D(1, 6.7520887e-09, 8.552189e-16, -6.7520887e-09, 1, 1.2665988e-07, -1.0587912e-22, -1.2665988e-07, 1, 0, 0, -0.5)
+layers = 2
 cast_shadow = 0
 mesh = SubResource("BoxMesh_156m4")
 surface_material_override/0 = SubResource("StandardMaterial3D_156m4")
+metadata/_edit_lock_ = true
 
 [node name="Node3D" type="Node3D" parent="." unique_id=399303830]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8361582, -0.2762432)
@@ -56,3 +321,29 @@ stream = ExtResource("2_yw17q")
 [node name="AudioListener3D" type="AudioListener3D" parent="." unique_id=1519816460]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.799696, 0)
 current = true
+
+[node name="RightHandAnim" type="AnimationPlayer" parent="." unique_id=1316907860]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_t45n6")
+autoplay = &"Idle"
+playback_auto_capture_transition_type = 5
+playback_auto_capture_ease_type = 1
+playback_default_blend_time = 0.2
+
+[node name="LazerEnd" type="Node3D" parent="." unique_id=1606103410]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5643244, 0, -4.1279807)
+visible = false
+
+[node name="OmniLight3D" type="OmniLight3D" parent="LazerEnd" unique_id=1458886696]
+light_color = Color(1, 0, 0, 1)
+omni_range = 1.4881942
+
+[node name="OuchPartc" type="GPUParticles3D" parent="LazerEnd" unique_id=1158899543]
+unique_name_in_owner = true
+lifetime = 0.5
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_o1rty")
+draw_pass_1 = SubResource("SphereMesh_u7612")
+
+[editable path="Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand"]
