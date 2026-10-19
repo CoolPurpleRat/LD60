@@ -18,3 +18,5 @@ text = "TOMB OF GREEN CUP"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
+resize_font_to_fit = true
+maximum_font_size = 120

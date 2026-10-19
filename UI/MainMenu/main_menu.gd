@@ -1,16 +1,19 @@
 extends Control
 
-const MAP = preload("uid://b7lt7rp4w06v")
-
 #region References
 @onready var continueBRef: Button = %"Continue b"
 @onready var menuSwitcherRef: TabContainer = %MenuSwitcher
 #endregion
 enum menuTabs{MAIN, OPTIONS, CREDITS}
 
+var loadingLevelPath:String="res://Levels/Map.tscn"
+func preloadLevel(newLevelPath:String)->void:
+	ResourceLoader.load_threaded_request(newLevelPath)
+	loadingLevelPath=newLevelPath
+
 func _ready() -> void:
 	menuSwitcherRef.current_tab=menuTabs.MAIN
-
+	preloadLevel(loadingLevelPath)
 	#MusicSystem.playMusic(MusicSystem.MENU)
 	#MobileButtons.setVisibility(false)
 
@@ -47,8 +50,15 @@ func _on_credits_b_pressed() -> void:
 
 
 func _on_play_pressed() -> void:
-	get_tree().change_scene_to_packed(MAP)
-
-
+	#get_tree().change_scene_to_packed(MAP)
+	##Заміна на пред загрузку
+	var Level:PackedScene=ResourceLoader.load_threaded_get(loadingLevelPath) as PackedScene
+	if Level:
+		get_tree().change_scene_to_packed.call_deferred(Level)
+		loadingLevelPath = ""
+		return
+	###Стара загрузка
+	get_tree().change_scene_to_file.call_deferred(loadingLevelPath)
+	
 func _on_l_dbutton_pressed() -> void:
 	OS.shell_open("https://ldjam.com/users/coolpurplerat/")

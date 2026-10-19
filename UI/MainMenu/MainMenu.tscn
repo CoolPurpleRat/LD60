@@ -234,10 +234,10 @@ text = "Vote my game on"
 
 [node name="Controls" parent="MenuSwitcher/MainOptions" unique_id=694717749 instance=ExtResource("23_rehxt")]
 layout_mode = 0
-offset_left = 25.0
-offset_top = 144.0
-offset_right = 372.0
-offset_bottom = 388.0
+offset_left = 6.0
+offset_top = 142.0
+offset_right = 287.0
+offset_bottom = 386.0
 
 [node name="Options" parent="MenuSwitcher" unique_id=721165324 instance=ExtResource("5_1dhmk")]
 visible = false

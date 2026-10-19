@@ -1,5 +1,7 @@
+@tool
 extends FoldableContainer
 
+@export_tool_button("Load text") var loadTextB:Callable=updateText
 @onready var licenseTextRef: RichTextLabel = %LicenseText
 @export_file_path("*.txt") var LicenseFilePath: String
 
@@ -25,7 +27,7 @@ func _update_ui(text: String) -> void:
 	if loadThread and loadThread.is_started():
 		loadThread.wait_to_finish()
 
-func _onVisibilityChanged() -> void:
+func updateText() -> void:
 	if visible:
 		licenseTextRef.custom_minimum_size=Vector2(0, DisplayServer.window_get_size().y/2)
 		if LicenseFilePath.is_empty() or not FileAccess.file_exists(LicenseFilePath):

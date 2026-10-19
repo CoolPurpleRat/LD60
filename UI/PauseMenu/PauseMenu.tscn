@@ -16,13 +16,13 @@ action = &"ui_cancel"
 [sub_resource type="Shortcut" id="Shortcut_bx856"]
 events = [SubResource("InputEventAction_no3i6")]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yp26c"]
+
 [sub_resource type="InputEventAction" id="InputEventAction_eoxer"]
 action = &"ui_cancel"
 
 [sub_resource type="Shortcut" id="Shortcut_no3i6"]
 events = [SubResource("InputEventAction_eoxer")]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yp26c"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=2111053916]
 process_mode = 3
@@ -122,19 +122,6 @@ theme = ExtResource("3_no3i6")
 text = "Exit to main menu"
 script = ExtResource("5_no3i6")
 
-[node name="ReturnToMain" type="TextureButton" parent="MenuSwitcher/MainOptions" unique_id=32377615 node_paths=PackedStringArray("menu")]
-texture_filter = 1
-layout_mode = 0
-offset_left = 2.0
-offset_top = 2.0
-offset_right = 86.0
-offset_bottom = 87.343994
-shortcut = SubResource("Shortcut_no3i6")
-texture_normal = ExtResource("7_2ppyi")
-stretch_mode = 0
-script = ExtResource("8_qwv65")
-menu = NodePath("../..")
-
 [node name="Label" parent="MenuSwitcher/MainOptions" unique_id=694717749 instance=ExtResource("9_180bu")]
 layout_mode = 0
 offset_left = 9.0
@@ -190,12 +177,22 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_yp26c")
 script = ExtResource("5_no3i6")
 metadata/_custom_type_script = "uid://bhjsk0kv2cx00"
 
-[connection signal="tab_changed" from="MenuSwitcher" to="MenuSwitcher/MainOptions/ReturnToMain" method="_on_menu_switcher_tab_changed"]
+[node name="ReturnToMain" type="TextureButton" parent="." unique_id=32377615 node_paths=PackedStringArray("menu")]
+texture_filter = 1
+offset_right = 84.0
+offset_bottom = 85.343994
+shortcut = SubResource("Shortcut_no3i6")
+texture_normal = ExtResource("7_2ppyi")
+stretch_mode = 0
+script = ExtResource("8_qwv65")
+menu = NodePath("../MenuSwitcher")
+
+[connection signal="tab_changed" from="MenuSwitcher" to="ReturnToMain" method="_on_menu_switcher_tab_changed"]
 [connection signal="pressed" from="MenuSwitcher/MainOptions/VBoxContainer/Continue b" to="." method="_on_continue_b_pressed"]
 [connection signal="visibility_changed" from="MenuSwitcher/MainOptions/VBoxContainer/Continue b" to="." method="_onContinueBVisibilityChanged"]
 [connection signal="pressed" from="MenuSwitcher/MainOptions/VBoxContainer/Options b" to="." method="_on_options_b_pressed"]
 [connection signal="pressed" from="MenuSwitcher/MainOptions/VBoxContainer/Restart b" to="." method="_on_restart_b_pressed"]
 [connection signal="pressed" from="MenuSwitcher/MainOptions/VBoxContainer/ExitToMenu b" to="." method="_on_exit_to_menu_b_pressed"]
-[connection signal="pressed" from="MenuSwitcher/MainOptions/ReturnToMain" to="MenuSwitcher/MainOptions/ReturnToMain" method="_on_pressed"]
 [connection signal="pressed" from="MenuSwitcher/MainOptions/AnimatedButton" to="." method="_on_animated_button_pressed"]
 [connection signal="pressed" from="MenuSwitcher/HideUi/UnHide" to="." method="_on_un_hide_pressed"]
+[connection signal="pressed" from="ReturnToMain" to="ReturnToMain" method="_on_pressed"]

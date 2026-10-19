@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsjc8651k4irl"
-path="res://.godot/imported/SpeachBubble.png-3dc704580fb512e398c7e119f968b70e.ctex"
+uid="uid://du1mfpakch5m3"
+path="res://.godot/imported/Icon.png-da58a5c6d89c120476e4c1572984e165.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://DialogueManager/SpeachBubble.png"
-dest_files=["res://.godot/imported/SpeachBubble.png-3dc704580fb512e398c7e119f968b70e.ctex"]
+source_file="res://Icon/Icon.png"
+dest_files=["res://.godot/imported/Icon.png-da58a5c6d89c120476e4c1572984e165.ctex"]
 
 [params]
 

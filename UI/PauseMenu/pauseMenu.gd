@@ -2,6 +2,7 @@ extends CanvasLayer
 
 const MainMenuRef:String="res://UI/MainMenu/MainMenu.tscn"
 @onready var menuSwitcherRef: TabContainer = %MenuSwitcher
+@onready var returnToMainRef: TextureButton = $ReturnToMain
 
 
 func _ready() -> void:
@@ -41,7 +42,7 @@ func _on_options_b_pressed() -> void:
 
 func _on_animated_button_pressed() -> void:
 	menuSwitcherRef.current_tab=2
-
-
+	returnToMainRef.set_deferred("visible", false)
+	
 func _on_un_hide_pressed() -> void:
 	menuSwitcherRef.current_tab=0
