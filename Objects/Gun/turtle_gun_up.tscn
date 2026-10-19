@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://qhkxi31g8ten"]
+
+[ext_resource type="PackedScene" uid="uid://dd5212pgasyby" path="res://Objects/Gun/TurtleGunUp.glb" id="1_q0b0q"]
+
+[node name="TurtleGunUp" unique_id=65613186 instance=ExtResource("1_q0b0q")]

@@ -38,20 +38,22 @@ height = 2.7172852
 
 [sub_resource type="Animation" id="Animation_l2ya6"]
 resource_name = "Fire"
+length = 0.4
+loop_mode = 2
 tracks/0/type = "rotation_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:ArmBase")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, -0.429413, -0.377444, 0.470889, 0.671867)
+tracks/0/keys = PackedFloat32Array(0, 1, -0.429413, -0.377444, 0.470889, 0.671867, 0.22, 1, -0.444747, -0.362429, 0.457795, 0.679168)
 tracks/1/type = "rotation_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:ArmSecond")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, -0.573439, -0.095961, -0.134284, 0.80245)
+tracks/1/keys = PackedFloat32Array(0, 1, -0.573439, -0.095961, -0.134284, 0.80245, 0.2, 1, -0.577777, -0.067897, -0.11419, 0.805311, 0.39999998, 1, -0.568404, -0.123908, -0.154215, 0.798613)
 tracks/2/type = "rotation_3d"
 tracks/2/imported = false
 tracks/2/enabled = true
@@ -97,62 +99,63 @@ tracks/7/keys = PackedFloat32Array(0, 1, 0.19004297, 0.08537498, -0.4558499, 0.8
 
 [sub_resource type="Animation" id="Animation_o1rty"]
 resource_name = "Idle"
+loop_mode = 2
 tracks/0/type = "rotation_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:ArmBase")
+tracks/0/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:IndexFinger")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, -0.639462, -0.288084, 0.390757, 0.596158)
+tracks/0/keys = PackedFloat32Array(0, 1, 0.173216, -0.013988999, 0.041590996, 0.98390585, 1, 1, 0.636652, -0.031511, 0.036039, 0.769664)
 tracks/1/type = "rotation_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:ArmSecond")
+tracks/1/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:MiddleFing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0.160732, 0.041119, -0.24441, 0.955373)
+tracks/1/keys = PackedFloat32Array(0, 1, 0.17346005, -0.008130001, 0.04139101, 0.9839372, 1, 1, 0.636837, -0.027364, 0.032822, 0.769814)
 tracks/2/type = "rotation_3d"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:Palm")
+tracks/2/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:Pinky")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, 0.185607, 0.004698, -0.024865, 0.982298)
+tracks/2/keys = PackedFloat32Array(0, 1, 0.17349604, -0.007321003, 0.04623901, 0.9837213, 1, 1, 0.635404, -0.029291, 0.035794, 0.770794)
 tracks/3/type = "rotation_3d"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:IndexFinger")
+tracks/3/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:RingFing")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
-tracks/3/keys = PackedFloat32Array(0, 1, 0.207452, -0.015348, 0.041557, 0.977242)
+tracks/3/keys = PackedFloat32Array(0, 1, 0.173727, -0.0027769997, 0.048763998, 0.98358196, 1, 1, 0.63549, -0.027473, 0.035157, 0.770819)
 tracks/4/type = "rotation_3d"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:MiddleFing")
+tracks/4/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:Thumb")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
-tracks/4/keys = PackedFloat32Array(0, 1, 0.207694, -0.009559, 0.041142, 0.977282)
+tracks/4/keys = PackedFloat32Array(0, 1, 0.15982303, 0.069235, -0.45939407, 0.87098813, 1, 1, 0.566879, 0.288584, -0.353781, 0.685716)
 tracks/5/type = "rotation_3d"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:Pinky")
+tracks/5/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:ArmBase")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
-tracks/5/keys = PackedFloat32Array(0, 1, 0.207721, -0.008941, 0.045896, 0.97707)
+tracks/5/keys = PackedFloat32Array(0, 1, -0.54559916, -0.4390162, 0.53280425, 0.47508523)
 tracks/6/type = "rotation_3d"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:RingFing")
+tracks/6/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:ArmSecond")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
-tracks/6/keys = PackedFloat32Array(0, 1, 0.207944, -0.004551, 0.048218, 0.976941)
+tracks/6/keys = PackedFloat32Array(0, 1, -0.0050729983, -0.0012979995, -0.24784091, 0.9687866, 1, 1, 0.078539, 0.020092, -0.247029, 0.965611)
 tracks/7/type = "rotation_3d"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:Thumb")
+tracks/7/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:Palm")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
-tracks/7/keys = PackedFloat32Array(0, 1, 0.190043, 0.085375, -0.45585, 0.86533)
+tracks/7/keys = PackedFloat32Array(0, 1, -0.07147504, -0.0018090007, -0.025240008, 0.9971214)
 
 [sub_resource type="Animation" id="Animation_t45n6"]
 length = 0.001
@@ -198,6 +201,20 @@ tracks/5/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/Rig
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = PackedFloat32Array(0, 1, 0.19004297, 0.08537498, -0.4558499, 0.86532986)
+tracks/6/type = "rotation_3d"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:ArmSecond")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, -0.005073, -0.001298, -0.247841, 0.968787)
+tracks/7/type = "rotation_3d"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature/Skeleton3D:ArmBase")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, -0.545599, -0.439016, 0.532804, 0.475085)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t45n6"]
 _data = {
@@ -281,8 +298,9 @@ transform = Transform3D(0.009340707, -0.23481429, 0, 0.23481429, 0.009340707, 0,
 metadata/_edit_lock_ = true
 
 [node name="Skeleton3D" parent="Camera3D/SubViewportContainer/SubViewport/Camera3D/RightHand/Armature" index="0" unique_id=2045580204]
-bones/0/rotation = Quaternion(-0.42941275, -0.37744373, 0.47088873, 0.6718667)
-bones/1/rotation = Quaternion(-0.57343936, -0.095961064, -0.13428406, 0.80245036)
+transform = Transform3D(1, 1.1175871e-08, 0, -1.1175871e-08, 1, 0, 0, 0, 1.0000004, -0.10882211, 2.7356434, 1.8653438)
+bones/0/rotation = Quaternion(-0.54559916, -0.4390162, 0.53280425, 0.47508523)
+bones/1/rotation = Quaternion(-0.0050729983, -0.0012979995, -0.24784091, 0.9687866)
 bones/2/rotation = Quaternion(-0.07147504, -0.0018090007, -0.025240008, 0.9971214)
 bones/3/rotation = Quaternion(0.20745195, -0.015347999, 0.041556995, 0.97724164)
 bones/4/rotation = Quaternion(0.20769395, -0.009558996, 0.041141987, 0.97728163)
@@ -319,7 +337,8 @@ light_cull_mask = 4293918722
 
 [node name="LazerMeshPivot" type="Node3D" parent="Camera3D/SubViewportContainer/SubViewport/Camera3D" unique_id=1820430836]
 unique_name_in_owner = true
-transform = Transform3D(2.7288225, -0.4091212, -0.1724654, 0.39882925, 2.730669, -0.16723357, 0.19508958, 0.14018357, 2.7542481, 1.4926057, -0.20926869, -3.3404188)
+transform = Transform3D(2.7288225, -0.4091212, -0.1724654, 0.39882925, 2.730669, -0.16723357, 0.19508958, 0.14018357, 2.7542481, 1.1525521, -1.1430218, -3.435859)
+visible = false
 
 [node name="LazerMesh" type="MeshInstance3D" parent="Camera3D/SubViewportContainer/SubViewport/Camera3D/LazerMeshPivot" unique_id=586962635]
 transform = Transform3D(1.0000001, 0, 0, 0, -4.3711466e-08, -1, 0, 1.0000018, -4.371139e-08, -1.1920929e-07, 2.9802322e-08, -0.5)

@@ -40,7 +40,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Action1"
+text = "Move up"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -52,6 +52,7 @@ focus_neighbor_left = NodePath("../../ZoomOut/ZoomOutB")
 focus_neighbor_right = NodePath("../../MoveRight/MoveRightB")
 focus_neighbor_bottom = NodePath("../../MoveRight/MoveRightB")
 focus_next = NodePath("../../MoveRight/MoveRightB")
+action = &"MoveUp"
 
 [node name="MoveRight" type="HBoxContainer" parent="ScrollContainer/ActionsList" unique_id=1507759426]
 layout_mode = 2
@@ -62,7 +63,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Action2"
+text = "Move down"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -73,6 +74,7 @@ size_flags_vertical = 3
 focus_neighbor_left = NodePath("../../MoveLeft/MoveLeftB")
 focus_neighbor_top = NodePath("../../MoveLeft/MoveLeftB")
 focus_previous = NodePath("../../MoveLeft/MoveLeftB")
+action = &"MoveDown"
 
 [node name="ZoomOut" type="HBoxContainer" parent="ScrollContainer/ActionsList" unique_id=1701405245]
 layout_mode = 2
@@ -83,7 +85,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Action3"
+text = "Move left"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -94,3 +96,138 @@ size_flags_vertical = 3
 focus_neighbor_right = NodePath("../../MoveLeft/MoveLeftB")
 focus_neighbor_bottom = NodePath("../../MoveLeft/MoveLeftB")
 focus_next = NodePath("../../MoveLeft/MoveLeftB")
+action = &"MoveLeft"
+
+[node name="MoveLeft2" type="HBoxContainer" parent="ScrollContainer/ActionsList" unique_id=876254248]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ActionName" type="Label" parent="ScrollContainer/ActionsList/MoveLeft2" unique_id=2020723537]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Move right"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MoveLeftB" parent="ScrollContainer/ActionsList/MoveLeft2" unique_id=481508143 instance=ExtResource("1")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../../ZoomOut/ZoomOutB")
+focus_neighbor_right = NodePath("../../MoveRight/MoveRightB")
+focus_neighbor_bottom = NodePath("../../MoveRight/MoveRightB")
+focus_next = NodePath("../../MoveRight/MoveRightB")
+action = &"MoveRight"
+
+[node name="MoveRight2" type="HBoxContainer" parent="ScrollContainer/ActionsList" unique_id=214541486]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ActionName" type="Label" parent="ScrollContainer/ActionsList/MoveRight2" unique_id=606816144]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Shoot"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MoveRightB" parent="ScrollContainer/ActionsList/MoveRight2" unique_id=1900564361 instance=ExtResource("1")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../../MoveLeft/MoveLeftB")
+focus_neighbor_top = NodePath("../../MoveLeft/MoveLeftB")
+focus_previous = NodePath("../../MoveLeft/MoveLeftB")
+action = &"Shoot"
+
+[node name="ZoomOut2" type="HBoxContainer" parent="ScrollContainer/ActionsList" unique_id=960139735]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ActionName" type="Label" parent="ScrollContainer/ActionsList/ZoomOut2" unique_id=1482269408]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Zoom in"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ZoomOutB" parent="ScrollContainer/ActionsList/ZoomOut2" unique_id=1486814910 instance=ExtResource("1")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_neighbor_right = NodePath("../../MoveLeft/MoveLeftB")
+focus_neighbor_bottom = NodePath("../../MoveLeft/MoveLeftB")
+focus_next = NodePath("../../MoveLeft/MoveLeftB")
+action = &"ZoomIn"
+
+[node name="MoveLeft3" type="HBoxContainer" parent="ScrollContainer/ActionsList" unique_id=634314671]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ActionName" type="Label" parent="ScrollContainer/ActionsList/MoveLeft3" unique_id=1744638488]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Zoom out"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MoveLeftB" parent="ScrollContainer/ActionsList/MoveLeft3" unique_id=2132802477 instance=ExtResource("1")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../../ZoomOut/ZoomOutB")
+focus_neighbor_right = NodePath("../../MoveRight/MoveRightB")
+focus_neighbor_bottom = NodePath("../../MoveRight/MoveRightB")
+focus_next = NodePath("../../MoveRight/MoveRightB")
+action = &"ZoomOut"
+
+[node name="MoveRight3" type="HBoxContainer" parent="ScrollContainer/ActionsList" unique_id=255919813]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ActionName" type="Label" parent="ScrollContainer/ActionsList/MoveRight3" unique_id=194149933]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Zoom restore"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MoveRightB" parent="ScrollContainer/ActionsList/MoveRight3" unique_id=2105235796 instance=ExtResource("1")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../../MoveLeft/MoveLeftB")
+focus_neighbor_top = NodePath("../../MoveLeft/MoveLeftB")
+focus_previous = NodePath("../../MoveLeft/MoveLeftB")
+action = &"ZoomRestore"
+
+[node name="ZoomOut3" type="HBoxContainer" parent="ScrollContainer/ActionsList" unique_id=1762053831]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ActionName" type="Label" parent="ScrollContainer/ActionsList/ZoomOut3" unique_id=1020652703]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Pause"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ZoomOutB" parent="ScrollContainer/ActionsList/ZoomOut3" unique_id=1919450132 instance=ExtResource("1")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_neighbor_right = NodePath("../../MoveLeft/MoveLeftB")
+focus_neighbor_bottom = NodePath("../../MoveLeft/MoveLeftB")
+focus_next = NodePath("../../MoveLeft/MoveLeftB")
+action = &"Pause"

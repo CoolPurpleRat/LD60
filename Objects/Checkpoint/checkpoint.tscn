@@ -3,9 +3,10 @@
 [ext_resource type="Script" uid="uid://ojt8uu4wpo74" path="res://Objects/Checkpoint/checkpoint.gd" id="1_4qwdl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6n7nk"]
-size = Vector3(10, 10, 10)
+size = Vector3(20, 20, 20)
 
 [node name="Checkpoint" type="Marker3D" unique_id=419216352]
+gizmo_extents = 10.0
 script = ExtResource("1_4qwdl")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=723904453]
@@ -14,5 +15,6 @@ collision_mask = 128
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1383153591]
 shape = SubResource("BoxShape3D_6n7nk")
+debug_color = Color(0.020155724, 0.70196074, 0, 0.41960785)
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

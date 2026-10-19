@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://d0vr64m57aws1"]
+
+[ext_resource type="Theme" uid="uid://cdmbk6lshl8rb" path="res://UI/UIThemes.tres" id="1_gbkl8"]
+
+[node name="Controls" type="Label" unique_id=694717749]
+offset_right = 358.0
+offset_bottom = 231.0
+theme = ExtResource("1_gbkl8")
+text = "Default controls:
+Move: Left - A
+Right - D
+Forward - W
+Back - S
+Zoom In - Mouse Wheel Up, out -- down
+Reset zoom -- middle button
+Shoot lazer -- left click
+Pause -- Esc"
+autowrap_mode = 1
+resize_font_to_fit = true

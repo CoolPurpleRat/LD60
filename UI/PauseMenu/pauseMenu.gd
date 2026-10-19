@@ -37,3 +37,11 @@ func _onContinueBVisibilityChanged() -> void:
 
 func _on_options_b_pressed() -> void:
 	menuSwitcherRef.current_tab=1
+
+
+func _on_animated_button_pressed() -> void:
+	menuSwitcherRef.current_tab=2
+
+
+func _on_un_hide_pressed() -> void:
+	menuSwitcherRef.current_tab=0

@@ -10,17 +10,17 @@ class_name vineDrawer
 ##The thickness at the start of the vine.
 @export_range(0.1, 1, 0.1) var base_radius: float = 0.1
 ##Tapers the vine towards the end (0 = tapers to a fine point, 1 = uniform thickness).
-@export_range(0.0, 1.0, 0.1) var tip_taper_ratio: float = 0.0
+@export_range(0.0, 1.0, 0.01) var tip_taper_ratio: float = 0.0
 ##Distance between lengthwise slices of the vine. Lower values mean smoother curves.
 @export_range(0.02, 1, 0.01) var step_distance: float = 0.05
 
 @export_group("Node Bulge Settings")
 ##Multiplier applied to the radius directly at the path points (targets).
-@export_range(1.0, 4.0, 0.1) var node_thickness_mult: float = 2.0
+@export_range(1.0, 4.0, 0.01) var node_thickness_mult: float = 2.0
 ##Multiplier applied to the radius at the thinnest midpoint between nodes.
-@export_range(0, 1.0, 0.05) var mid_thinness_mult: float = 0.5
+@export_range(0, 1.0, 0.01) var mid_thinness_mult: float = 0.5
 ##How sharp or spread out the bulbous shape around each node is.
-@export_range(0, 5.0, 0.1) var bulge_falloff_power: float = 2.0
+@export_range(0, 5.0, 0.01) var bulge_falloff_power: float = 2.0
 
 @export_group("Organic Variation")
 ##Introduces organic squiggliness to the vine path.

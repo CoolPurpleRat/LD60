@@ -1,18 +1,20 @@
 [gd_scene format=3 uid="uid://df6mw7twnrj52"]
 
 [ext_resource type="Script" uid="uid://dcdkhi3yuj2rl" path="res://UI/MainMenu/GamePreview/also_play.gd" id="1_32esh"]
+[ext_resource type="Script" uid="uid://bxi4320xmatel" path="res://UI/Elements/animatedTextureButton.gd" id="2_g0vj1"]
+[ext_resource type="Script" uid="uid://bhjsk0kv2cx00" path="res://UI/Elements/animatedButton.gd" id="2_l1rnm"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_agf74"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_agf74"]
-bg_color = Color(1.1551381e-06, 0.6785767, 0.7401883, 1)
+bg_color = Color(0.7411765, 0.4764684, 0, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l1rnm"]
-bg_color = Color(1.1551381e-06, 0.6785767, 0.7401883, 1)
+bg_color = Color(0, 0.7411765, 0.07421106, 1)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
@@ -107,7 +109,7 @@ text = "Sincerely, Damn Signal!"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="GameButton" type="TextureButton" parent="VBoxContainer" unique_id=1697609512]
+[node name="GameButton" type="TextureButton" parent="VBoxContainer" unique_id=314792544]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 130.375)
 layout_mode = 2
@@ -117,6 +119,8 @@ mouse_filter = 1
 mouse_default_cursor_shape = 2
 ignore_texture_size = true
 stretch_mode = 5
+script = ExtResource("2_g0vj1")
+metadata/_custom_type_script = "uid://bxi4320xmatel"
 
 [node name="CycleScreenshotTimer" type="Timer" parent="." unique_id=181872103]
 unique_name_in_owner = true
@@ -145,7 +149,7 @@ size_flags_vertical = 0
 size_flags_stretch_ratio = 0.5
 mouse_filter = 2
 
-[node name="NextGame" type="Button" parent="." unique_id=45743913]
+[node name="NextGame" type="Button" parent="." unique_id=1772168305]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -161,8 +165,10 @@ mouse_filter = 1
 theme_override_styles/normal = SubResource("StyleBoxFlat_agf74")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_l1rnm")
 theme_override_styles/hover = SubResource("StyleBoxFlat_g0vj1")
+script = ExtResource("2_l1rnm")
+metadata/_custom_type_script = "uid://bhjsk0kv2cx00"
 
-[node name="PreviousGame" type="Button" parent="." unique_id=478582044]
+[node name="PreviousGame" type="Button" parent="." unique_id=1279409076]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -175,8 +181,10 @@ mouse_filter = 1
 theme_override_styles/normal = SubResource("StyleBoxFlat_agf74")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_l1rnm")
 theme_override_styles/hover = SubResource("StyleBoxFlat_g0vj1")
+script = ExtResource("2_l1rnm")
+metadata/_custom_type_script = "uid://bhjsk0kv2cx00"
 
-[node name="ScreenshotButtonTemplate" type="Button" parent="." unique_id=1599647618]
+[node name="ScreenshotButtonTemplate" type="Button" parent="." unique_id=1201065290]
 unique_name_in_owner = true
 visible = false
 modulate = Color(1, 1, 1, 0.58431375)
@@ -192,6 +200,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_gsf41")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rvbty")
 theme_override_styles/hover = SubResource("StyleBoxFlat_aymnx")
 script = SubResource("GDScript_agf74")
+metadata/_custom_type_script = "uid://bhjsk0kv2cx00"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

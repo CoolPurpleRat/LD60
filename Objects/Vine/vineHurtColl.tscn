@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dx5g4hr1rwe11" path="res://Objects/FireParticles.tscn" id="3_uaaom"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_xjjeb"]
-radius = 1.6370016
+radius = 1.6
 
 [node name="VineHurtColl" type="StaticBody3D" unique_id=824741653 node_paths=PackedStringArray("collisionRef")]
 script = ExtResource("1_11ukf")

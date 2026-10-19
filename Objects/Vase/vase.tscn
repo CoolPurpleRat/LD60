@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c3lmhue5chag"]
+
+[ext_resource type="PackedScene" uid="uid://btwochepmoq55" path="res://Objects/Vase/Vase.glb" id="1_o3x5v"]
+
+[node name="Vase" unique_id=1090337036 instance=ExtResource("1_o3x5v")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="2" unique_id=1932473904]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.080051, 0)
+light_color = Color(0, 1, 0.23687458, 1)
+light_energy = 10.0
+light_bake_mode = 1
+distance_fade_enabled = true
+omni_range = 12.057

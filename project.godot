@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="LD60"
-run/main_scene="uid://b7lt7rp4w06v"
+run/main_scene="uid://dcngewtne5cj0"
 config/features=PackedStringArray("4.8", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -295,4 +295,5 @@ rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
-limits/opengl/max_lights_per_object=32
+limits/opengl/max_renderable_lights=48
+limits/opengl/max_lights_per_object=64

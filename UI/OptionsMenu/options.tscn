@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bqjujnyl2kxqc" path="res://UI/OptionsMenu/ResolutionChoose/resolution_choose.tscn" id="2_g1tf0"]
 [ext_resource type="Theme" uid="uid://cdmbk6lshl8rb" path="res://UI/UIThemes.tres" id="2_v7uto"]
 [ext_resource type="PackedScene" uid="uid://bjdgwg23lm1d4" path="res://UI/InputRemap/InputRemapMenu.tscn" id="3_3hbg6"]
+[ext_resource type="AudioStream" uid="uid://d0gspsu4tc6lc" path="res://Audio/Sfx/Fire.ogg" id="5_v7uto"]
 
 [node name="Options" type="Control" unique_id=721165324]
 layout_mode = 3
@@ -369,6 +370,7 @@ focus_previous = NodePath("../DeleteConfig_b")
 
 [node name="AudioTest" type="AudioStreamPlayer" parent="." unique_id=475815272]
 unique_name_in_owner = true
+stream = ExtResource("5_v7uto")
 
 [connection signal="hidden" from="." to="." method="_on_hidden"]
 [connection signal="visibility_changed" from="." to="." method="_onVisibilityChanged"]

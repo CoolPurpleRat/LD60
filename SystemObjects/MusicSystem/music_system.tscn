@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ckgv7kpke30l3" path="res://SystemObjects/MusicSystem/music_system.gd" id="1_g5d47"]
 [ext_resource type="AudioStream" uid="uid://l1cgafvj1cff" path="res://Audio/Music/Buy a ticket, please.ogg" id="2_3jksl"]
+[ext_resource type="AudioStream" uid="uid://b5kaew86fuxli" path="res://Audio/Sfx/ButtonSFX.mp3" id="3_sbkea"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_7uis8"]
 clip_count = 1
@@ -31,5 +32,6 @@ bus = &"Music"
 
 [node name="UIButtonSound" type="AudioStreamPlayer" parent="." unique_id=707867673]
 unique_name_in_owner = true
+stream = ExtResource("3_sbkea")
 volume_db = -5.0
 bus = &"SFX"

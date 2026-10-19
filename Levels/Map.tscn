@@ -11,6 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://cffhti66uuhgq" path="res://Objects/Map/mapModel.tscn" id="5_rp1x1"]
 [ext_resource type="PackedScene" uid="uid://c2eq0oe4aabgk" path="res://Objects/Torch/torch.tscn" id="5_se72i"]
 [ext_resource type="Script" uid="uid://7mp2bfw4phyv" path="res://Objects/deathZone.gd" id="8_25xcm"]
+[ext_resource type="PackedScene" uid="uid://c3lmhue5chag" path="res://Objects/Vase/vase.tscn" id="12_0cuwj"]
+[ext_resource type="PackedScene" uid="uid://qhkxi31g8ten" path="res://Objects/Gun/turtle_gun_up.tscn" id="13_de2l5"]
+[ext_resource type="PackedScene" uid="uid://b8m03c5hx2352" path="res://Objects/Gun/turtle_gun_front.tscn" id="14_uq1ui"]
+[ext_resource type="PackedScene" uid="uid://chm2rpok4632y" path="res://Objects/Ball/ball.tscn" id="15_uq1ui"]
+[ext_resource type="PackedScene" uid="uid://4vh1y5na83pv" path="res://UI/WinAnim/win_anim.tscn" id="16_dns3v"]
 
 [sub_resource type="Animation" id="Animation_qvem3"]
 resource_name = "Move"
@@ -134,10 +139,59 @@ shader_parameter/color_depth = 8.0
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_2d6al"]
 
+[sub_resource type="Animation" id="Animation_de2l5"]
+resource_name = "Go"
+length = 90.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatableBody3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 9.373866, 17.0352, 24.377861, 31.99733, 40.830395, 53.726406, 60.556103, 67.2464, 73.736, 81.39733),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 14.05946, 43.997437), Vector3(0, 29.436285, 38.73909), Vector3(43.34922, 26.895773, 53.54692), Vector3(68.945786, -1.5352058, 2.5960846), Vector3(113.11412, -1.299994, -0.4350586), Vector3(115.295975, 29.57271, 34.770966), Vector3(105.83262, 25.328945, 48.69867), Vector3(59.641342, 20.960424, 52.713547), Vector3(56.06158, 0.42996216, 8.306427), Vector3(16.547043, 0.2813691, -2.827652)]
+}
+
+[sub_resource type="Animation" id="Animation_uq1ui"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatableBody3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dns3v"]
+_data = {
+&"Go": SubResource("Animation_de2l5"),
+&"RESET": SubResource("Animation_uq1ui")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q48g1"]
+size = Vector3(14.094208, 5.343628, 13.607788)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_58f7e"]
+radius = 1.9482422
+height = 11.655029
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_de2l5"]
+radius = 2.0576155
+
 [node name="Node3D" type="Node3D" unique_id=526910338]
 
 [node name="Map" parent="." unique_id=948755450 instance=ExtResource("5_rp1x1")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 2.113, -8.147978)
+metadata/_edit_lock_ = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1119161025]
 environment = ExtResource("2_6p7yq")
@@ -324,7 +378,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -175.40108, 66.031296, 26.767
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -175.54358, 66.031296, -56.08759)
 
 [node name="Door" parent="SecondRoom" unique_id=111810260 instance=ExtResource("3_hilv7")]
-transform = Transform3D(-0.018067108, 0, -2.5587506, 0, 3.771, 0, 1.2938739, 0, -0.03572931, -180.85332, 9.637866, -78.56265)
+transform = Transform3D(-0.020650119, 0, -2.926715, 0, 4.308, 0, 1.4788558, 0, -0.04086741, -180.85332, 9.864615, -78.56265)
 vinesToBurn = 3
 
 [node name="BeginRoom" type="Node3D" parent="." unique_id=1802177267]
@@ -403,7 +457,7 @@ size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
 [node name="Player" parent="PlayerPost/SubViewport" unique_id=1525188872 node_paths=PackedStringArray("checkpointRef") instance=ExtResource("2_benyq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.231693, 3.363922, 12.551178)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.910494, -0.8092452, 23.572836)
 collision_layer = 129
 checkpointRef = NodePath("../../../BeginRoom/Checkpoint")
 
@@ -571,6 +625,315 @@ transform = Transform3D(-0.993961, 0, -0.10973427, 0, 1, 0, 0.10973427, 0, -0.99
 [node name="Torch5" parent="RoomFirst" unique_id=78940992 instance=ExtResource("5_se72i")]
 transform = Transform3D(0.8433915, 0, 0.5372996, 0, 1, 0, -0.5372996, 0, 0.8433915, -75.13057, -0.80912936, 19.509867)
 
+[node name="Hall2" type="Node3D" parent="." unique_id=1554519663]
+
+[node name="Vine" parent="Hall2" unique_id=526586248 node_paths=PackedStringArray("points") instance=ExtResource("4_se72i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.83306, 13.20336, -22.161419)
+points = [NodePath("Marker3D"), NodePath("Marker3D2"), NodePath("Marker3D3"), NodePath("Marker3D4"), NodePath("Marker3D5"), NodePath("Marker3D6"), NodePath("Marker3D7")]
+regrowTime = 4.0
+vineWidth = 0.5
+
+[node name="Marker3D" type="Marker3D" parent="Hall2/Vine" unique_id=480405868]
+
+[node name="Marker3D2" type="Marker3D" parent="Hall2/Vine" unique_id=277290]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.8410053, -1.4898052)
+
+[node name="Marker3D3" type="Marker3D" parent="Hall2/Vine" unique_id=1880046372]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.371262, -6.159686, 0.63759613)
+
+[node name="Marker3D4" type="Marker3D" parent="Hall2/Vine" unique_id=124431411]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.576302, -12.777208, 1.8284359)
+
+[node name="Marker3D5" type="Marker3D" parent="Hall2/Vine" unique_id=334491932]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.455002, -12.777208, -4.3079567)
+
+[node name="Marker3D6" type="Marker3D" parent="Hall2/Vine" unique_id=1260310737]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.704212, -12.777208, 7.545353)
+
+[node name="Marker3D7" type="Marker3D" parent="Hall2/Vine" unique_id=2065445529]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.518417, -12.481104, 9.750526)
+
+[node name="Door" parent="Hall2" unique_id=1018829540 instance=ExtResource("3_hilv7")]
+transform = Transform3D(1.5929958, 0, 0, 0, 2.3717117, 0, 0, 0, 1.5929958, -76.71369, 5.2174683, -25.917747)
+vinesToBurn = 2
+
+[node name="Vine2" parent="Hall2" unique_id=174061061 node_paths=PackedStringArray("points") instance=ExtResource("4_se72i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.83306, 13.20336, -29.547554)
+points = [NodePath("Marker3D"), NodePath("Marker3D2"), NodePath("Marker3D3"), NodePath("Marker3D4"), NodePath("Marker3D5"), NodePath("Marker3D6"), NodePath("Marker3D7"), NodePath("Marker3D8")]
+regrowTime = 4.0
+vineWidth = 0.5
+
+[node name="Marker3D" type="Marker3D" parent="Hall2/Vine2" unique_id=1546620236]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.659447, 0)
+
+[node name="Marker3D2" type="Marker3D" parent="Hall2/Vine2" unique_id=118317067]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.8410053, -1.4898052)
+
+[node name="Marker3D3" type="Marker3D" parent="Hall2/Vine2" unique_id=613780277]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.371262, -6.159686, 0.63759613)
+
+[node name="Marker3D4" type="Marker3D" parent="Hall2/Vine2" unique_id=1725556384]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.576302, -12.777208, 1.8284359)
+
+[node name="Marker3D5" type="Marker3D" parent="Hall2/Vine2" unique_id=958522795]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.684097, -12.777208, 1.8811817)
+
+[node name="Marker3D6" type="Marker3D" parent="Hall2/Vine2" unique_id=771423416]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.312157, -11.9732, 3.08535)
+
+[node name="Marker3D7" type="Marker3D" parent="Hall2/Vine2" unique_id=300754081]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.79203, -12.476508, 9.968763)
+
+[node name="Marker3D8" type="Marker3D" parent="Hall2/Vine2" unique_id=1035397860]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.74051, -12.701896, 15.632992)
+
+[node name="Torch" parent="Hall2/Vine2" unique_id=1202651705 instance=ExtResource("5_se72i")]
+transform = Transform3D(0.95831, 0, 0.28573054, 0, 1, 0, -0.28573054, 0, 0.95831, 15.323608, -10.948511, 19.116863)
+
+[node name="Torch2" parent="Hall2/Vine2" unique_id=244601211 instance=ExtResource("5_se72i")]
+transform = Transform3D(0.95831, 0, 0.28573054, 0, 1, 0, -0.28573054, 0, 0.95831, 31.125557, -13.052538, 2.6960526)
+
+[node name="Torch3" parent="Hall2/Vine2" unique_id=1983236464 instance=ExtResource("5_se72i")]
+transform = Transform3D(0.95831, 0, 0.28573054, 0, 1, 0, -0.28573054, 0, 0.95831, 11.455334, -13.052538, -0.011581421)
+
+[node name="Hall3" type="Node3D" parent="." unique_id=1160231912]
+
+[node name="Torch" parent="Hall3" unique_id=2039664343 instance=ExtResource("5_se72i")]
+transform = Transform3D(0.17364822, 0, 0.9848077, 0, 1, 0, -0.9848077, 0, 0.17364822, -188.96135, 7.1859884, -103.74556)
+
+[node name="Torch2" parent="Hall3" unique_id=1305936752 instance=ExtResource("5_se72i")]
+transform = Transform3D(0.9092361, 0, 0.41628078, 0, 1, 0, -0.41628078, 0, 0.9092361, -181.78181, 7.1859884, -161.13449)
+
+[node name="Torch3" parent="Hall3" unique_id=464375792 instance=ExtResource("5_se72i")]
+transform = Transform3D(0.9092361, 0, 0.41628078, 0, 1, 0, -0.41628078, 0, 0.9092361, -144.5689, 7.1859894, -184.47295)
+
+[node name="Torch4" parent="Hall3" unique_id=193611718 instance=ExtResource("5_se72i")]
+transform = Transform3D(-0.45243466, 0, 0.8917975, 0, 1, 0, -0.8917975, 0, -0.45243466, -152.30663, 7.1859903, -211.19154)
+
+[node name="Door" parent="Hall3" unique_id=635619675 instance=ExtResource("3_hilv7")]
+transform = Transform3D(2.155081, 0, 0, 0, 3.7483323, 0, 0, 0, 2.155081, -115.36583, 7.803713, -235.89131)
+
+[node name="Vine" parent="Hall3" unique_id=1323502384 node_paths=PackedStringArray("points") instance=ExtResource("4_se72i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120.753006, 7.803713, -229.92555)
+points = [NodePath("Marker3D"), NodePath("Marker3D2"), NodePath("Marker3D3"), NodePath("Marker3D5"), NodePath("Marker3D6"), NodePath("Marker3D7"), NodePath("Marker3D8"), NodePath("Marker3D9"), NodePath("Marker3D10"), NodePath("Marker3D11"), NodePath("Marker3D12")]
+regrowTime = 3.0
+vineWidth = 3.0
+
+[node name="Marker3D" type="Marker3D" parent="Hall3/Vine" unique_id=139791926]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3406143, 0, 6.188431)
+
+[node name="Marker3D2" type="Marker3D" parent="Hall3/Vine" unique_id=1111871345]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.65077, -13.831711)
+
+[node name="Marker3D3" type="Marker3D" parent="Hall3/Vine" unique_id=1516019478]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.147827, 19.36023, -8.225784)
+
+[node name="Marker3D5" type="Marker3D" parent="Hall3/Vine" unique_id=1409343671]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.462326, -1.2800102, 5.2369843)
+
+[node name="Marker3D6" type="Marker3D" parent="Hall3/Vine" unique_id=425344735]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.07753, -7.881482, 41.278946)
+
+[node name="Marker3D7" type="Marker3D" parent="Hall3/Vine" unique_id=5045478]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.683449, -6.511529, 64.95009)
+
+[node name="Marker3D8" type="Marker3D" parent="Hall3/Vine" unique_id=775460360]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.683449, 13.967617, 64.95009)
+
+[node name="Marker3D9" type="Marker3D" parent="Hall3/Vine" unique_id=1251219928]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.581589, 13.803066, 48.02951)
+
+[node name="Marker3D10" type="Marker3D" parent="Hall3/Vine" unique_id=1908558481]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.256302, -7.689643, 80.48454)
+
+[node name="Marker3D11" type="Marker3D" parent="Hall3/Vine" unique_id=1639300105]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.87074, -4.5500174, 87.388504)
+
+[node name="Marker3D12" type="Marker3D" parent="Hall3/Vine" unique_id=334412140]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.052124, 13.106045, 121.98104)
+
+[node name="ThirdRoom" type="Node3D" parent="." unique_id=1105883098]
+
+[node name="Torch" parent="ThirdRoom" unique_id=212132666 instance=ExtResource("5_se72i")]
+transform = Transform3D(0.65342057, 0, 0.7569951, 0, 1, 0, -0.7569951, 0, 0.65342057, -101.40298, 1.8578062, -246.67096)
+
+[node name="Column" parent="ThirdRoom" unique_id=1053387031 instance=ExtResource("5_qvem3")]
+transform = Transform3D(1, 0, 0, 0, 0.9121201, 0.40992305, 0, -0.40992305, 0.9121201, -60.26612, 0, -207.75726)
+
+[node name="Column2" parent="ThirdRoom" unique_id=1269054268 instance=ExtResource("5_qvem3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0579882, 1.9073486e-06, -211.08382)
+
+[node name="Column3" parent="ThirdRoom" unique_id=260210682 instance=ExtResource("5_qvem3")]
+transform = Transform3D(0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 0, 1, -43.632317, -1.9073486e-06, -261.6062)
+
+[node name="Door" parent="ThirdRoom" unique_id=1839378552 instance=ExtResource("3_hilv7")]
+transform = Transform3D(2.8746343, 0, 0, 0, 3.3895328, 0, 0, 0, 2.7404702, 37.63062, 10.556927, -218.8273)
+
+[node name="Vine" parent="ThirdRoom" unique_id=299078030 node_paths=PackedStringArray("points") instance=ExtResource("4_se72i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.30187, 14.327684, -210.72104)
+points = [NodePath("Marker3D18"), NodePath("Marker3D17"), NodePath("Marker3D16"), NodePath("Marker3D15"), NodePath("Marker3D14"), NodePath("Marker3D13"), NodePath("Marker3D12"), NodePath("Marker3D11"), NodePath("Marker3D10"), NodePath("Marker3D9"), NodePath("Marker3D8"), NodePath("Marker3D7"), NodePath("Marker3D6"), NodePath("Marker3D5"), NodePath("Marker3D4"), NodePath("Marker3D3"), NodePath("Marker3D2"), NodePath("Marker3D")]
+regrowTime = 15.0
+vineWidth = 3.0
+
+[node name="Marker3D" type="Marker3D" parent="ThirdRoom/Vine" unique_id=1599099924]
+gizmo_extents = 1.59
+
+[node name="Marker3D2" type="Marker3D" parent="ThirdRoom/Vine" unique_id=973467014]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2321472, 9.957033, 11.011337)
+gizmo_extents = 1.59
+
+[node name="Marker3D3" type="Marker3D" parent="ThirdRoom/Vine" unique_id=1227868600]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.651741, 17.421457, 11.031586)
+gizmo_extents = 1.59
+
+[node name="Marker3D4" type="Marker3D" parent="ThirdRoom/Vine" unique_id=2071001629]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.596035, 0, 37.196136)
+gizmo_extents = 1.59
+
+[node name="Marker3D5" type="Marker3D" parent="ThirdRoom/Vine" unique_id=1346619538]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.933468, 15.676434, 37.196136)
+gizmo_extents = 1.59
+
+[node name="Marker3D6" type="Marker3D" parent="ThirdRoom/Vine" unique_id=272177924]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.83768, 19.700037, 11.843063)
+gizmo_extents = 1.59
+
+[node name="Marker3D7" type="Marker3D" parent="ThirdRoom/Vine" unique_id=709034737]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.58662, 8.161184, 3.3549042)
+gizmo_extents = 1.59
+
+[node name="Marker3D8" type="Marker3D" parent="ThirdRoom/Vine" unique_id=2059591918]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.652653, 8.161184, -30.818054)
+gizmo_extents = 1.59
+
+[node name="Marker3D9" type="Marker3D" parent="ThirdRoom/Vine" unique_id=71925671]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.74922, -4.3837996, -30.818054)
+gizmo_extents = 1.59
+
+[node name="Marker3D10" type="Marker3D" parent="ThirdRoom/Vine" unique_id=30062777]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.430725, 0.6617155, -21.409164)
+gizmo_extents = 1.59
+
+[node name="Marker3D11" type="Marker3D" parent="ThirdRoom/Vine" unique_id=707657492]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115.67995, 0.6617174, -41.338287)
+gizmo_extents = 1.59
+
+[node name="Marker3D12" type="Marker3D" parent="ThirdRoom/Vine" unique_id=409201063]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115.36485, 19.646597, -16.845078)
+gizmo_extents = 1.59
+
+[node name="Marker3D13" type="Marker3D" parent="ThirdRoom/Vine" unique_id=276385056]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.07333, 19.646597, 0.7463379)
+gizmo_extents = 1.59
+
+[node name="Marker3D14" type="Marker3D" parent="ThirdRoom/Vine" unique_id=2133686029]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.69421, 17.513437, 23.318481)
+gizmo_extents = 1.59
+
+[node name="Marker3D15" type="Marker3D" parent="ThirdRoom/Vine" unique_id=766673633]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.36756, 10.511515, 32.70009)
+gizmo_extents = 1.59
+
+[node name="Marker3D16" type="Marker3D" parent="ThirdRoom/Vine" unique_id=558266822]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.07035, 31.90856, 36.733612)
+gizmo_extents = 1.59
+
+[node name="Marker3D17" type="Marker3D" parent="ThirdRoom/Vine" unique_id=1491021246]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.254192, 18.528082, -29.52623)
+gizmo_extents = 1.59
+
+[node name="Marker3D18" type="Marker3D" parent="ThirdRoom/Vine" unique_id=286735286]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.254192, 43.31073, -29.52623)
+gizmo_extents = 1.59
+
+[node name="Platform" parent="ThirdRoom" unique_id=591033559 instance=ExtResource("2_2d6al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -85.55402, 0.2920494, -237.051)
+
+[node name="Torch2" parent="ThirdRoom/Platform/AnimatableBody3D" parent_id_path=PackedInt32Array(591033559, 97874646) index="3" unique_id=2101681717 instance=ExtResource("5_se72i")]
+transform = Transform3D(-0.4524347, 0, 0.89179754, 0, 1, 0, -0.89179754, 0, -0.4524347, 0.8473053, 3.544844, -0.68362427)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ThirdRoom/Platform" unique_id=1521897710]
+libraries/ = SubResource("AnimationLibrary_dns3v")
+autoplay = &"RESET"
+
+[node name="Area3D" type="Area3D" parent="ThirdRoom/Platform" unique_id=1266161531]
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ThirdRoom/Platform/Area3D" unique_id=1574321057]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31214905, 2.171814, 0.32244873)
+shape = SubResource("BoxShape3D_q48g1")
+
+[node name="Torch2" parent="ThirdRoom" unique_id=2122539138 instance=ExtResource("5_se72i")]
+transform = Transform3D(-0.4524347, 0, 0.89179754, 0, 1, 0, -0.89179754, 0, -0.4524347, -102.568016, 1.8578062, -224.24925)
+
+[node name="Checkpoint" parent="ThirdRoom" unique_id=1542431077 instance=ExtResource("4_lac52")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.7921, 2.4621253, -235.79385)
+
+[node name="EndRoom" type="Node3D" parent="." unique_id=209305582]
+
+[node name="Torch2" parent="EndRoom" unique_id=1994659211 instance=ExtResource("5_se72i")]
+transform = Transform3D(-0.4524347, 0, 0.89179754, 0, 1, 0, -0.89179754, 0, -0.4524347, 64.11703, 4.935858, -210.28593)
+
+[node name="Torch3" parent="EndRoom" unique_id=333616070 instance=ExtResource("5_se72i")]
+transform = Transform3D(-0.9996101, 0, 0.027921537, 0, 1, 0, -0.027921537, 0, -0.9996101, 80.17571, 4.935857, -212.4158)
+
+[node name="Torch4" parent="EndRoom" unique_id=1677270121 instance=ExtResource("5_se72i")]
+transform = Transform3D(-0.9996101, 0, 0.027921537, 0, 1, 0, -0.027921537, 0, -0.9996101, 97.557396, 4.935857, -209.52502)
+
+[node name="Torch5" parent="EndRoom" unique_id=378544909 instance=ExtResource("5_se72i")]
+transform = Transform3D(-0.9996101, 0, 0.027921537, 0, 1, 0, -0.027921537, 0, -0.9996101, 132.15749, 24.636051, -205.29607)
+
+[node name="Torch6" parent="EndRoom" unique_id=910107777 instance=ExtResource("5_se72i")]
+transform = Transform3D(0.9770456, 0, -0.21303038, 0, 1, 0, 0.21303038, 0, 0.9770456, 64.11703, 4.935858, -225.84224)
+
+[node name="Torch7" parent="EndRoom" unique_id=1765961793 instance=ExtResource("5_se72i")]
+transform = Transform3D(0.9770456, 0, -0.21303038, 0, 1, 0, 0.21303038, 0, 0.9770456, 80.17571, 4.935857, -224.34496)
+
+[node name="Torch8" parent="EndRoom" unique_id=2135934818 instance=ExtResource("5_se72i")]
+transform = Transform3D(0.9770456, 0, -0.21303038, 0, 1, 0, 0.21303038, 0, 0.9770456, 97.557396, 4.935857, -227.90141)
+
+[node name="Torch9" parent="EndRoom" unique_id=368467662 instance=ExtResource("5_se72i")]
+transform = Transform3D(0.9770456, 0, -0.21303038, 0, 1, 0, 0.21303038, 0, 0.9770456, 132.15749, 24.636051, -233.42836)
+
+[node name="Vase" parent="EndRoom" unique_id=1090337036 instance=ExtResource("12_0cuwj")]
+transform = Transform3D(0.445, 0, 0, 0, 0.445, 0, 0, 0, 0.445, 139.39937, 26.39108, -218.61346)
+
+[node name="Area3D" type="Area3D" parent="EndRoom/Vase" unique_id=1786030046]
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EndRoom/Vase/Area3D" unique_id=889496369]
+transform = Transform3D(0.9999997, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999997, 0, -1.454956, 0)
+shape = SubResource("CapsuleShape3D_58f7e")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="EndRoom" unique_id=1544742785]
+
+[node name="TurtleGunUp" parent="EndRoom/StaticBody3D" unique_id=65613186 instance=ExtResource("13_de2l5")]
+transform = Transform3D(0.224122, 0, 0.31304047, 0, 0.385, 0, -0.31304047, 0, 0.224122, 136.14839, 25.499798, -209.08983)
+
+[node name="TurtleGunFront" parent="EndRoom/StaticBody3D" unique_id=11722086 instance=ExtResource("14_uq1ui")]
+transform = Transform3D(-0.2253675, 0, 0.4067364, 0, 0.465, 0, -0.4067364, 0, -0.2253675, 137.53313, 26.164612, -228.89787)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EndRoom/StaticBody3D" unique_id=8407789]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 135.84126, 24.573538, -209.16394)
+shape = SubResource("SphereShape3D_de2l5")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="EndRoom/StaticBody3D" unique_id=1063840080]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 137.26833, 25.559637, -228.66089)
+shape = SubResource("SphereShape3D_de2l5")
+
+[node name="Ball" parent="EndRoom/StaticBody3D" unique_id=723141576 instance=ExtResource("15_uq1ui")]
+transform = Transform3D(-0.15295799, 0, -0.21024711, 0, 0.26, 0, 0.21024711, 0, -0.15295799, 146.23334, 25.833647, -216.90146)
+
+[node name="Ball2" parent="EndRoom/StaticBody3D" unique_id=80312654 instance=ExtResource("15_uq1ui")]
+transform = Transform3D(-0.20064834, 0.15978111, 0.042546973, 0.16432774, 0.20011833, 0.0234318, -0.018347964, 0.04497383, -0.25542262, 145.24254, 25.833647, -221.95096)
+
+[node name="Ball3" parent="EndRoom/StaticBody3D" unique_id=1980405647 instance=ExtResource("15_uq1ui")]
+transform = Transform3D(-0.25657475, -0.016786987, -0.03856966, -0.019020421, 0.2589343, 0.0138304345, 0.037518594, 0.016469806, -0.2567511, 147.03104, 25.833647, -219.26712)
+
+[node name="WinAnim" parent="." unique_id=1177464688 instance=ExtResource("16_dns3v")]
+
 [connection signal="vineDied" from="SecondRoom/Column/Vine" to="SecondRoom/Door" method="open"]
 [connection signal="vineDied" from="SecondRoom/ColumnNear/Vine" to="SecondRoom/Door" method="open"]
 [connection signal="vineDied" from="SecondRoom/ColumnFar/Vine" to="SecondRoom/Door" method="open"]
@@ -580,8 +943,15 @@ transform = Transform3D(0.8433915, 0, 0.5372996, 0, 1, 0, -0.5372996, 0, 0.84339
 [connection signal="vineDied" from="RoomFirst/VineLeft" to="RoomFirst/Door" method="open"]
 [connection signal="vineDied" from="RoomFirst/VineMiddle" to="RoomFirst/Door" method="open"]
 [connection signal="vineDied" from="RoomFirst/VineRight" to="RoomFirst/Door" method="open"]
+[connection signal="vineDied" from="Hall2/Vine" to="Hall2/Door" method="open"]
+[connection signal="vineDied" from="Hall2/Vine2" to="Hall2/Door" method="open"]
+[connection signal="vineDied" from="Hall3/Vine" to="Hall3/Door" method="open"]
+[connection signal="vineDied" from="ThirdRoom/Vine" to="ThirdRoom/Door" method="open"]
+[connection signal="body_entered" from="ThirdRoom/Platform/Area3D" to="ThirdRoom/Platform/AnimationPlayer" method="play" flags=6 unbinds=1 binds= [&"Go"]]
+[connection signal="body_entered" from="EndRoom/Vase/Area3D" to="WinAnim" method="playAnim" flags=6 unbinds=1]
 
 [editable path="SecondRoom/PlatformF"]
 [editable path="SecondRoom/PlatformB"]
 [editable path="SecondRoom/PlatformL"]
 [editable path="SecondRoom/PlatformR"]
+[editable path="ThirdRoom/Platform"]

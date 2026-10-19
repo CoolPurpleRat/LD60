@@ -18,7 +18,7 @@ var canDie:=false:
 		if value:
 			collisionRef.scale=Vector3.ONE
 		else:
-			collisionRef.scale=Vector3.ONE*2
+			collisionRef.scale=Vector3.ONE*1.4
 func _ready() -> void:
 	ouchPartcRef.global_rotation=Vector3.ZERO
 	if canDie:

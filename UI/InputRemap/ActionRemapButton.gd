@@ -48,7 +48,9 @@ func display_cleanText() -> void:
 		var cleanText: String = ""
 
 		#Keybord key with Alt, Ctrl etc.
-		if event is InputEventWithModifiers:
+		if event is InputEventMouseButton:
+			cleanText=event.as_text()
+		elif event is InputEventWithModifiers:
 			if event.physical_keycode != KEY_NONE:
 				cleanText = OS.get_keycode_string(event.physical_keycode)
 			else:
@@ -72,8 +74,6 @@ func display_cleanText() -> void:
 			cleanText=cleanText.replace("Equal","=")
 			cleanText=cleanText.replace("Minus","-")
 			cleanText=cleanText.replace("Enter","↵")
-		elif event is InputEventMouseButton:
-			cleanText=event.as_text()
 		elif event is InputEventJoypadButton:
 			cleanText="🎮"
 			match event.button_index:

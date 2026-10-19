@@ -18,7 +18,7 @@ offset_right = 262.0
 grow_vertical = 0
 theme = ExtResource("1_tkjhy")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_yf0l7")
-text = "v0.0"
+text = "v1.0"
 autowrap_mode = 2
 script = ExtResource("2_r8hh6")
 
@@ -38,7 +38,8 @@ focus_neighbor_right = NodePath("CloseChangelog")
 focus_next = NodePath("CloseChangelog")
 focus_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_yf0l7")
-text = "Changelog"
+text = "Changelog
+1.0 Public release"
 
 [node name="CloseChangelog" type="Button" parent="Changelog" unique_id=497844609]
 layout_mode = 1

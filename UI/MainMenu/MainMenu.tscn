@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dcngewtne5cj0"]
 
 [ext_resource type="Script" uid="uid://1a7biy4smb6p" path="res://UI/MainMenu/main_menu.gd" id="1_1dhmk"]
+[ext_resource type="Texture2D" uid="uid://btmyxq1k6wg0c" path="res://UI/MainMenu/GameScreenshot.png" id="2_5thul"]
 [ext_resource type="Script" uid="uid://bxiclsli274hu" path="res://UI/MainMenu/continue_b.gd" id="3_1dhmk"]
 [ext_resource type="Script" uid="uid://vfivla4oju18" path="res://UI/MainMenu/return_to_main.gd" id="3_4elqj"]
 [ext_resource type="PackedScene" uid="uid://b4th03c30cv03" path="res://UI/logo.tscn" id="3_eoxer"]
@@ -16,9 +17,12 @@
 [ext_resource type="Script" uid="uid://bme1wttv7h03i" path="res://UI/MainMenu/GamePreview/showGameResource.gd" id="15_5thul"]
 [ext_resource type="Script" uid="uid://bhjsk0kv2cx00" path="res://UI/Elements/animatedButton.gd" id="15_h4ivt"]
 [ext_resource type="Texture2D" uid="uid://c6gywt82l70u0" path="res://UI/MainMenu/GamePreview/SincerelyDamnSignal/NewPreview.png" id="16_a6vv6"]
-[ext_resource type="Texture2D" uid="uid://neinc785lt3k" path="res://icon.svg" id="18_h4ivt"]
 [ext_resource type="Texture2D" uid="uid://b1lbbsvabnre3" path="res://UI/MainMenu/GamePreview/SincerelyDamnSignal/FightShown.png" id="18_rehxt"]
 [ext_resource type="Texture2D" uid="uid://dxu2rtkjug6ab" path="res://UI/MainMenu/GamePreview/SincerelyDamnSignal/FoxStealed.png" id="19_4ngpu"]
+[ext_resource type="Texture2D" uid="uid://37gerad4ex4r" path="res://UI/Elements/GoBackIcon.png" id="19_5thul"]
+[ext_resource type="Texture2D" uid="uid://b7rjnatmlij53" path="res://UI/Elements/SiteIcons/LD-Logo-Tall-Color@2x.png" id="21_00tn1"]
+[ext_resource type="Script" uid="uid://bxi4320xmatel" path="res://UI/Elements/animatedTextureButton.gd" id="22_rehxt"]
+[ext_resource type="PackedScene" uid="uid://d0vr64m57aws1" path="res://UI/Elements/Controls.tscn" id="23_rehxt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_migmm"]
 
@@ -62,6 +66,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_5thul")
 metadata/_edit_lock_ = true
 
 [node name="MenuSwitcher" type="TabContainer" parent="." unique_id=1141260246]
@@ -135,6 +140,15 @@ offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Play" type="Button" parent="MenuSwitcher/MainOptions/VBoxContainer" unique_id=2005795767 groups=["UIButton"]]
+layout_mode = 2
+size_flags_horizontal = 17
+size_flags_vertical = 3
+theme = ExtResource("4_srm2j")
+text = "Play"
+script = ExtResource("15_h4ivt")
+metadata/_custom_type_script = "uid://bhjsk0kv2cx00"
+
 [node name="Continue b" type="Button" parent="MenuSwitcher/MainOptions/VBoxContainer" unique_id=862568174 groups=["LevelChooseButton", "UIButton"]]
 unique_name_in_owner = true
 visible = false
@@ -147,7 +161,7 @@ focus_previous = NodePath("../Exit b")
 focus_behavior_recursive = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("4_srm2j")
-text = "Continue"
+text = "Play"
 script = ExtResource("3_1dhmk")
 
 [node name="Options b" type="Button" parent="MenuSwitcher/MainOptions/VBoxContainer" unique_id=1649699622 groups=["UIButton"]]
@@ -192,6 +206,39 @@ theme = ExtResource("4_srm2j")
 text = "Exit"
 script = ExtResource("15_h4ivt")
 
+[node name="LDbutton" type="TextureButton" parent="MenuSwitcher/MainOptions" unique_id=1983780495]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 34.0
+offset_top = -217.0
+offset_right = 262.0
+offset_bottom = -88.0
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("21_00tn1")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("22_rehxt")
+metadata/_custom_type_script = "uid://bxi4320xmatel"
+
+[node name="PlsVote" type="Label" parent="MenuSwitcher/MainOptions" unique_id=257729493]
+layout_mode = 1
+offset_left = 18.0
+offset_top = 391.0
+offset_right = 287.0
+offset_bottom = 452.0
+theme = ExtResource("4_srm2j")
+text = "Vote my game on"
+
+[node name="Controls" parent="MenuSwitcher/MainOptions" unique_id=694717749 instance=ExtResource("23_rehxt")]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 144.0
+offset_right = 372.0
+offset_bottom = 388.0
+
 [node name="Options" parent="MenuSwitcher" unique_id=721165324 instance=ExtResource("5_1dhmk")]
 visible = false
 layout_mode = 2
@@ -205,18 +252,19 @@ metadata/_tab_index = 2
 [node name="ReturnToMain" type="TextureButton" parent="." unique_id=2091433038 node_paths=PackedStringArray("menu") groups=["UIButton"]]
 texture_filter = 1
 layout_mode = 0
-offset_top = 86.0
+offset_top = 2.0
 offset_right = 84.0
-offset_bottom = 171.344
-rotation = -1.5707964
+offset_bottom = 87.343994
 shortcut = SubResource("Shortcut_wdl18")
-texture_normal = ExtResource("18_h4ivt")
+texture_normal = ExtResource("19_5thul")
 stretch_mode = 0
 script = ExtResource("3_4elqj")
 menu = NodePath("../MenuSwitcher")
 
 [connection signal="tab_changed" from="MenuSwitcher" to="ReturnToMain" method="_on_menu_switcher_tab_changed"]
+[connection signal="pressed" from="MenuSwitcher/MainOptions/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MenuSwitcher/MainOptions/VBoxContainer/Options b" to="." method="_on_options_b_pressed"]
 [connection signal="pressed" from="MenuSwitcher/MainOptions/VBoxContainer/Credits B" to="." method="_on_credits_b_pressed"]
 [connection signal="pressed" from="MenuSwitcher/MainOptions/VBoxContainer/Exit b" to="." method="_on_exit_b_pressed"]
+[connection signal="pressed" from="MenuSwitcher/MainOptions/LDbutton" to="." method="_on_l_dbutton_pressed"]
 [connection signal="pressed" from="ReturnToMain" to="ReturnToMain" method="_on_pressed"]

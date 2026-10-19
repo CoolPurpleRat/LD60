@@ -6,8 +6,9 @@
 [ext_resource type="Theme" uid="uid://cdmbk6lshl8rb" path="res://UI/UIThemes.tres" id="3_no3i6"]
 [ext_resource type="Script" uid="uid://bhjsk0kv2cx00" path="res://UI/Elements/animatedButton.gd" id="5_no3i6"]
 [ext_resource type="PackedScene" uid="uid://ldnfsf3asf3c" path="res://UI/OptionsMenu/options.tscn" id="6_ah665"]
-[ext_resource type="Texture2D" uid="uid://neinc785lt3k" path="res://icon.svg" id="7_2ppyi"]
+[ext_resource type="Texture2D" uid="uid://37gerad4ex4r" path="res://UI/Elements/GoBackIcon.png" id="7_2ppyi"]
 [ext_resource type="Script" uid="uid://vfivla4oju18" path="res://UI/MainMenu/return_to_main.gd" id="8_qwv65"]
+[ext_resource type="PackedScene" uid="uid://d0vr64m57aws1" path="res://UI/Elements/Controls.tscn" id="9_180bu"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_no3i6"]
 action = &"ui_cancel"
@@ -20,6 +21,8 @@ action = &"ui_cancel"
 
 [sub_resource type="Shortcut" id="Shortcut_no3i6"]
 events = [SubResource("InputEventAction_eoxer")]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yp26c"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=2111053916]
 process_mode = 3
@@ -119,6 +122,42 @@ theme = ExtResource("3_no3i6")
 text = "Exit to main menu"
 script = ExtResource("5_no3i6")
 
+[node name="ReturnToMain" type="TextureButton" parent="MenuSwitcher/MainOptions" unique_id=32377615 node_paths=PackedStringArray("menu")]
+texture_filter = 1
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 86.0
+offset_bottom = 87.343994
+shortcut = SubResource("Shortcut_no3i6")
+texture_normal = ExtResource("7_2ppyi")
+stretch_mode = 0
+script = ExtResource("8_qwv65")
+menu = NodePath("../..")
+
+[node name="Label" parent="MenuSwitcher/MainOptions" unique_id=694717749 instance=ExtResource("9_180bu")]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 197.0
+offset_right = 323.0
+offset_bottom = 428.0
+
+[node name="AnimatedButton" type="Button" parent="MenuSwitcher/MainOptions" unique_id=111621782]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -178.0
+offset_top = -82.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("3_no3i6")
+text = "Hide UI"
+script = ExtResource("5_no3i6")
+metadata/_custom_type_script = "uid://bhjsk0kv2cx00"
+
 [node name="Options" parent="MenuSwitcher" unique_id=721165324 instance=ExtResource("6_ah665")]
 visible = false
 layout_mode = 2
@@ -130,22 +169,33 @@ focus_next = NodePath("../MainOptions/VBoxContainer/Continue b")
 focus_previous = NodePath("../MainOptions/VBoxContainer/Continue b")
 metadata/_tab_index = 1
 
-[node name="ReturnToMain" type="TextureButton" parent="." unique_id=32377615 node_paths=PackedStringArray("menu")]
-texture_filter = 1
-offset_top = 84.0
-offset_right = 84.0
-offset_bottom = 169.344
-rotation = -1.5707964
-shortcut = SubResource("Shortcut_no3i6")
-texture_normal = ExtResource("7_2ppyi")
-stretch_mode = 0
-script = ExtResource("8_qwv65")
-menu = NodePath("../MenuSwitcher")
+[node name="HideUi" type="Control" parent="MenuSwitcher" unique_id=1975048812]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
 
-[connection signal="tab_changed" from="MenuSwitcher" to="ReturnToMain" method="_on_menu_switcher_tab_changed"]
+[node name="UnHide" type="Button" parent="MenuSwitcher/HideUi" unique_id=1700234511]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -388.0
+offset_top = -290.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("3_no3i6")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yp26c")
+script = ExtResource("5_no3i6")
+metadata/_custom_type_script = "uid://bhjsk0kv2cx00"
+
+[connection signal="tab_changed" from="MenuSwitcher" to="MenuSwitcher/MainOptions/ReturnToMain" method="_on_menu_switcher_tab_changed"]
 [connection signal="pressed" from="MenuSwitcher/MainOptions/VBoxContainer/Continue b" to="." method="_on_continue_b_pressed"]
 [connection signal="visibility_changed" from="MenuSwitcher/MainOptions/VBoxContainer/Continue b" to="." method="_onContinueBVisibilityChanged"]
 [connection signal="pressed" from="MenuSwitcher/MainOptions/VBoxContainer/Options b" to="." method="_on_options_b_pressed"]
 [connection signal="pressed" from="MenuSwitcher/MainOptions/VBoxContainer/Restart b" to="." method="_on_restart_b_pressed"]
 [connection signal="pressed" from="MenuSwitcher/MainOptions/VBoxContainer/ExitToMenu b" to="." method="_on_exit_to_menu_b_pressed"]
-[connection signal="pressed" from="ReturnToMain" to="ReturnToMain" method="_on_pressed"]
+[connection signal="pressed" from="MenuSwitcher/MainOptions/ReturnToMain" to="MenuSwitcher/MainOptions/ReturnToMain" method="_on_pressed"]
+[connection signal="pressed" from="MenuSwitcher/MainOptions/AnimatedButton" to="." method="_on_animated_button_pressed"]
+[connection signal="pressed" from="MenuSwitcher/HideUi/UnHide" to="." method="_on_un_hide_pressed"]
