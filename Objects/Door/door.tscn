@@ -1,0 +1,158 @@
+[gd_scene format=3 uid="uid://bkbpbwlc3v35w"]
+
+[ext_resource type="PackedScene" uid="uid://p2hbt0p70md8" path="res://Objects/Door/Door.glb" id="1_7y0h0"]
+[ext_resource type="Script" uid="uid://ccj7usn10ov21" path="res://Objects/Door/door.gd" id="2_xnqow"]
+[ext_resource type="Texture2D" uid="uid://b2pa267d181lc" path="res://Objects/Map/MapBrick.png" id="3_c24xa"]
+[ext_resource type="AudioStream" uid="uid://dtclltxnr57lk" path="res://Audio/Sfx/DoorOpen.ogg" id="3_yh2pu"]
+
+[sub_resource type="Gradient" id="Gradient_afebq"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0.48102874, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_d2idd"]
+noise_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qxoed"]
+noise = SubResource("FastNoiseLite_d2idd")
+color_ramp = SubResource("Gradient_afebq")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7pw0b"]
+noise_type = 2
+frequency = 0.0125
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_p0hg6"]
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_7pw0b")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_se72i"]
+cull_mode = 2
+albedo_texture = ExtResource("3_c24xa")
+metallic_specular = 0.0
+heightmap_enabled = true
+heightmap_texture = ExtResource("3_c24xa")
+detail_enabled = true
+detail_mask = SubResource("NoiseTexture2D_p0hg6")
+detail_blend_mode = 3
+detail_albedo = SubResource("NoiseTexture2D_qxoed")
+uv1_scale = Vector3(3, 3, 3)
+uv1_triplanar_sharpness = 2.9281733
+stencil_flags = 2
+stencil_outline_thickness = 1.0
+
+[sub_resource type="Animation" id="Animation_7y0h0"]
+resource_name = "Open"
+length = 3.0000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube_001:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13671805, 0.5, 0.6861419, 0.93466574, 1.2858407, 1.7990965, 2.2853386, 3),
+"transitions": PackedFloat32Array(1.8660663, 1.8660663, 1.8660663, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.02147317, 2.6992834, 0.04849744), Vector3(0.021, 2.699, -0.227), Vector3(0.02147317, 2.6992834, 0.04849744), Vector3(0.021, 2.759, -0.252), Vector3(0.021050822, 3.5686255, -0.21972457), Vector3(0.021, 4.713, 0.174), Vector3(0.021227593, 6.3847136, -0.10746218), Vector3(0.021, 7.969, 0.044), Vector3(0.02147317, 10.296942, 0.04849744)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cube:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25941372, 0.5, 0.7995984, 1.0913438, 1.4803376, 2.0260096, 2.6419165, 3),
+"transitions": PackedFloat32Array(1.8660663, 1.8660663, 1.8660663, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.29), Vector3(0, 0, 0), Vector3(0, -0.282, 0.305), Vector3(0, -2.206273, 0.26456088), Vector3(0, -4.772, -0.211), Vector3(0, -8.371075, 0.13500586), Vector3(0, -12.433, -0.05), Vector3(0, -14.79525, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StaticBody3D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 3),
+"transitions": PackedFloat32Array(1.8660663, 1.8660663, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 9.006594, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xnqow"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube_001:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2.435, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cube:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.17, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StaticBody3D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yh2pu"]
+_data = {
+&"Open": SubResource("Animation_7y0h0"),
+&"RESET": SubResource("Animation_xnqow")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7y0h0"]
+size = Vector3(2.2122192, 7.0029144, 9.09198)
+
+[node name="Door" unique_id=834655849 instance=ExtResource("1_7y0h0")]
+script = ExtResource("2_xnqow")
+
+[node name="Cube" parent="." index="0" unique_id=480393380]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_se72i")
+
+[node name="Cube_001" parent="." index="1" unique_id=1139094123]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.435, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_se72i")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." index="2" unique_id=365862162]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_yh2pu")
+autoplay = &"RESET"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="3" unique_id=1452472085]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1230750042]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08503044, 1.1293411, -0.054595947)
+shape = SubResource("BoxShape3D_7y0h0")
+
+[node name="DoorOpen" type="AudioStreamPlayer3D" parent="." index="4" unique_id=1416466563]
+unique_name_in_owner = true
+stream = ExtResource("3_yh2pu")
+volume_db = 10.0
+unit_size = 5.0
+max_distance = 50.0
+bus = &"SFX"

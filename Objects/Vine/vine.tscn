@@ -5,21 +5,21 @@
 
 [sub_resource type="Curve3D" id="Curve3D_k5b60"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -3.857885, 5.178317, -3.5686655, 0, 0, 0, 0, 0, 0, -3.8044438, 3.771509, -2.1411793, 0, 0, 0, 0, 0, 0, 1.954726, 4.1731396, -2.685215, 0, 0, 0, 0, 0, 0, 4.7546706, 11.875729, -2.7491603),
-"tilts": PackedFloat32Array(0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -62.51283, 9.914901, 18.34516, 0, 0, 0, 0, 0, 0, -66.44336, 0.023997307, 20.1561, 0, 0, 0, 0, 0, 0, -68.98958, -0.8189821, 28.168177, 0, 0, 0, 0, 0, 0, -63.30576, -0.8189821, 31.236094, 0, 0, 0, 0, 0, 0, -55.58704, -0.8189821, 31.601282, 0, 0, 0, 0, 0, 0, -53.662624, 0.46507072, 30.04759, 0, 0, 0, 0, 0, 0, -51.406548, -1.1229467, 30.04759, 0, 0, 0, 0, 0, 0, -45.12832, -1.1229467, 29.174961, 0, 0, 0, 0, 0, 0, -50.78176, -1.1229467, 37.95893, 0, 0, 0, 0, 0, 0, -62.396236, -0.29292774, 47.916073, 0, 0, 0, 0, 0, 0, -55.380848, 7.862198, 47.916073, 0, 0, 0, 0, 0, 0, -62.114685, 12.09647, 42.035736),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 4
+point_count = 12
 
-[sub_resource type="Gradient" id="Gradient_d5ofw"]
+[sub_resource type="Gradient" id="Gradient_k5b60"]
 colors = PackedColorArray(0.62152416, 0.6215238, 0.6215237, 1, 1, 1, 1, 1)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_k5b60"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xjjeb"]
 noise_type = 2
 frequency = 0.0862
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_p4erq"]
-noise = SubResource("FastNoiseLite_k5b60")
-color_ramp = SubResource("Gradient_d5ofw")
+noise = SubResource("FastNoiseLite_xjjeb")
+color_ramp = SubResource("Gradient_k5b60")
 seamless = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uvd1l"]
@@ -54,7 +54,7 @@ mesh = SubResource("ArrayMesh_k5b60")
 script = ExtResource("1_ct28r")
 path = NodePath("../Path3D")
 base_radius = 0.30000000000000004
-step_distance = 0.22999999999999998
+step_distance = 0.23
 node_thickness_mult = 1.5
 mid_thinness_mult = 0.0
 bulge_falloff_power = 0.0

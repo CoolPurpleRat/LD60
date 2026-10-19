@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dx5g4hr1rwe11"]
+
+[sub_resource type="Gradient" id="Gradient_11ukf"]
+offsets = PackedFloat32Array(0, 0.19798657, 1)
+colors = PackedColorArray(1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_11ukf"]
+gradient = SubResource("Gradient_11ukf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8x6g7"]
+direction = Vector3(0, 1, 0)
+initial_velocity_max = 6.5
+gravity = Vector3(0, 1, 0)
+radial_accel_min = -58.82
+radial_accel_max = 67.96999
+color_ramp = SubResource("GradientTexture1D_11ukf")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8x6g7"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_y5i2a"]
+material = SubResource("StandardMaterial3D_8x6g7")
+
+[node name="FireParticles" type="GPUParticles3D" unique_id=1280675837]
+unique_name_in_owner = true
+cast_shadow = 0
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_8x6g7")
+draw_pass_1 = SubResource("SphereMesh_y5i2a")

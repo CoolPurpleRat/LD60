@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://ksj5736rst1s"]
 
 [ext_resource type="PackedScene" uid="uid://c4ngynjofceon" path="res://DialogueManager/Character/CharacterBase.tscn" id="1_8hpv0"]
-[ext_resource type="Script" uid="uid://br083t6pwkblu" path="res://TestingWorld/ExampleChar.gd" id="2_f0u0s"]
-[ext_resource type="Texture2D" uid="uid://ctiisku3cpfbh" path="res://TestingWorld/Re.png" id="3_8hpv0"]
-[ext_resource type="AudioStream" uid="uid://2bvq5jr5gmo0" path="res://TestingWorld/ReSound.wav" id="3_f0u0s"]
-[ext_resource type="AudioStream" uid="uid://7x2mka04ll6g" path="res://TestingWorld/MiSound.wav" id="5_coeq6"]
+[ext_resource type="Script" uid="uid://br083t6pwkblu" path="res://DialogueManager/Example/ExampleChar.gd" id="2_f0u0s"]
+[ext_resource type="Texture2D" uid="uid://ctiisku3cpfbh" path="res://DialogueManager/Example/Re.png" id="3_8hpv0"]
+[ext_resource type="AudioStream" uid="uid://2bvq5jr5gmo0" path="res://DialogueManager/Example/ReSound.wav" id="3_f0u0s"]
+[ext_resource type="AudioStream" uid="uid://7x2mka04ll6g" path="res://DialogueManager/Example/MiSound.wav" id="5_coeq6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8hpv0"]
 atlas = ExtResource("3_8hpv0")
@@ -106,7 +106,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_5t2nb"]
 resource_name = "Talk"
-length = 0.39999999999999997
+length = 0.4
 loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -161,7 +161,6 @@ stream_0/stream = ExtResource("5_coeq6")
 scale = Vector2(2, 2)
 script = ExtResource("2_f0u0s")
 charName = &"Re"
-displayName = &"Re"
 talkSound = ExtResource("3_f0u0s")
 
 [node name="Sprite" type="Sprite2D" parent="." index="0" unique_id=1892936163]
@@ -179,5 +178,5 @@ unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_m4qua")
 autoplay = &"RESET"
 
-[node name="TalkSFX" parent="." index="3" unique_id=1583683606]
+[node name="TalkSFX" parent="." index="3" unique_id=392728571]
 stream = SubResource("AudioStreamRandomizer_d5b3u")

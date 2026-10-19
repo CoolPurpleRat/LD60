@@ -24,9 +24,9 @@ value = 100.0
 rounded = true
 allow_greater = true
 update_on_text_changed = true
-suffix = "x"
 custom_arrow_step = 1.0
 select_all_on_focus = true
+suffix = "x"
 script = ExtResource("3_wt1ey")
 
 [node name="Y spin" type="SpinBox" parent="." unique_id=993352057]
@@ -45,9 +45,9 @@ value = 100.0
 rounded = true
 allow_greater = true
 update_on_text_changed = true
-suffix = "y"
 custom_arrow_step = 1.0
 select_all_on_focus = true
+suffix = "y"
 script = ExtResource("3_wt1ey")
 
 [node name="Button" type="Button" parent="." unique_id=146294014]

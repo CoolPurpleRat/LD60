@@ -77,7 +77,9 @@ mouse_filter = 1
 theme = ExtResource("1_44gpk")
 bbcode_enabled = true
 text = "[b]Credits[/b]
-Persik[url=https://persivalko.itch.io/][img=40x40]res://UI/Elements/SiteIcons/itchio-textless-black.svg[/img][/url][url=https://www.youtube.com/@CoolPurpleRat][img=0x50]res://UI/Elements/SiteIcons/youtube-icon.png[/img][/url][url=https://bsky.app/profile/coolpurplerat.bsky.social][img=40x40]res://UI/Elements/SiteIcons/bluesky-icon.png[/img][/url]"
+Persik[url=https://persivalko.itch.io/][img=40x40]res://UI/Elements/SiteIcons/itchio-textless-black.svg[/img][/url][url=https://www.youtube.com/@CoolPurpleRat][img=0x50]res://UI/Elements/SiteIcons/youtube-icon.png[/img][/url][url=https://bsky.app/profile/coolpurplerat.bsky.social][img=40x40]res://UI/Elements/SiteIcons/bluesky-icon.png[/img][/url]
+
+Postprocessing shader by dairycultist"
 fit_content = true
 horizontal_alignment = 1
 meta_underlined = false
@@ -89,6 +91,12 @@ layout_mode = 2
 mouse_filter = 1
 title = "cashew-olddew -- Universal transition shader"
 LicenseFilePath = "res://Licences/UniversalTShader.txt"
+
+[node name="UniversalTransition2" parent="CreditsScroll/VBoxContainer" unique_id=1959557158 instance=ExtResource("3_fpdaq")]
+layout_mode = 2
+mouse_filter = 1
+title = "Google -- Noto color emoji font"
+LicenseFilePath = "res://Licences/NoToColor.txt"
 
 [node name="GodotLicense" parent="CreditsScroll/VBoxContainer" unique_id=605193494 instance=ExtResource("3_fpdaq")]
 layout_mode = 2

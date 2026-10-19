@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://ofc3m13qbure"]
 
 [ext_resource type="PackedScene" uid="uid://c4ngynjofceon" path="res://DialogueManager/Character/CharacterBase.tscn" id="1_alut6"]
-[ext_resource type="Script" uid="uid://br083t6pwkblu" path="res://TestingWorld/ExampleChar.gd" id="2_0kusd"]
-[ext_resource type="Texture2D" uid="uid://bscq0txshbqmp" path="res://TestingWorld/Mi.png" id="2_66gpq"]
-[ext_resource type="AudioStream" uid="uid://7x2mka04ll6g" path="res://TestingWorld/MiSound.wav" id="3_0kusd"]
+[ext_resource type="Script" uid="uid://br083t6pwkblu" path="res://DialogueManager/Example/ExampleChar.gd" id="2_0kusd"]
+[ext_resource type="Texture2D" uid="uid://bscq0txshbqmp" path="res://DialogueManager/Example/Mi.png" id="2_66gpq"]
+[ext_resource type="AudioStream" uid="uid://7x2mka04ll6g" path="res://DialogueManager/Example/MiSound.wav" id="3_0kusd"]
 
 [sub_resource type="Animation" id="Animation_jtaf1"]
 resource_name = "Angry"
@@ -185,7 +185,6 @@ stream_0/stream = ExtResource("3_0kusd")
 scale = Vector2(2, 2)
 script = ExtResource("2_0kusd")
 charName = &"Mi"
-displayName = &"Mi"
 talkSound = ExtResource("3_0kusd")
 
 [node name="PortraitAnim" type="AnimationPlayer" parent="." index="0" unique_id=965991574]
@@ -203,5 +202,5 @@ texture_filter = 1
 texture = SubResource("AtlasTexture_l4f2j")
 offset = Vector2(0, -72)
 
-[node name="TalkSFX" parent="." index="3" unique_id=1583683606]
+[node name="TalkSFX" parent="." index="3" unique_id=392728571]
 stream = SubResource("AudioStreamRandomizer_0kusd")

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://d1rkbnvhjnv4w"]
 
-[ext_resource type="Texture2D" uid="uid://dsilksexm7ciy" path="res://###ASSETS###/5 UI/RightUp.png" id="1_8sqeq"]
+[ext_resource type="Texture2D" uid="uid://neinc785lt3k" path="res://icon.svg" id="1_8sqeq"]
 [ext_resource type="Script" uid="uid://e67xd4bp2grj" path="res://UI/MobileButtons/mobile_buttons.gd" id="1_ijkv3"]
-[ext_resource type="Texture2D" uid="uid://bqil81bvf1w5r" path="res://###ASSETS###/5 UI/Pause.png" id="2_ijkv3"]
+[ext_resource type="Texture2D" uid="uid://neinc785lt3k" path="res://icon.svg" id="2_ijkv3"]
 
 [node name="MobileButtons" type="CanvasLayer" unique_id=1870105281]
 script = ExtResource("1_ijkv3")

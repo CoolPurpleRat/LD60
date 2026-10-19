@@ -1,35 +1,18 @@
 [gd_scene format=3 uid="uid://dlpabhcdpbk8w"]
 
 [ext_resource type="Script" uid="uid://c43ydck247q8u" path="res://Objects/Vine/lazerReceiver.gd" id="1_11ukf"]
+[ext_resource type="AudioStream" uid="uid://d0gspsu4tc6lc" path="res://Audio/Sfx/Fire.ogg" id="2_8x6g7"]
+[ext_resource type="PackedScene" uid="uid://dx5g4hr1rwe11" path="res://Objects/FireParticles.tscn" id="3_uaaom"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_xjjeb"]
-radius = 0.746336
+radius = 1.6370016
 
-[sub_resource type="Gradient" id="Gradient_11ukf"]
-colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_11ukf"]
-gradient = SubResource("Gradient_11ukf")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8x6g7"]
-direction = Vector3(0, 1, 0)
-initial_velocity_max = 6.5
-gravity = Vector3(0, 1, 0)
-radial_accel_min = -58.82
-radial_accel_max = 67.96999
-color_ramp = SubResource("GradientTexture1D_11ukf")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8x6g7"]
-shading_mode = 0
-albedo_color = Color(1, 0, 0, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_y5i2a"]
-material = SubResource("StandardMaterial3D_8x6g7")
-
-[node name="VineHurtColl" type="StaticBody3D" unique_id=824741653]
+[node name="VineHurtColl" type="StaticBody3D" unique_id=824741653 node_paths=PackedStringArray("collisionRef")]
 script = ExtResource("1_11ukf")
+collisionRef = NodePath("CollisionShape3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1038947123]
+unique_name_in_owner = true
 shape = SubResource("SphereShape3D_xjjeb")
 
 [node name="FireTimer" type="Timer" parent="." unique_id=1619740088]
@@ -44,12 +27,18 @@ one_shot = true
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=1793924871]
 visible = false
+radius = 1.6738745
 
-[node name="OuchPartc" type="GPUParticles3D" parent="." unique_id=98925715]
+[node name="Fire" type="AudioStreamPlayer3D" parent="." unique_id=194581221]
 unique_name_in_owner = true
-emitting = false
-process_material = SubResource("ParticleProcessMaterial_8x6g7")
-draw_pass_1 = SubResource("SphereMesh_y5i2a")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06394263, 0.4586744, 0.19840479)
+stream = ExtResource("2_8x6g7")
+volume_db = 10.0
+unit_size = 2.5
+bus = &"SFX"
+
+[node name="FireParticles" parent="." unique_id=1280675837 instance=ExtResource("3_uaaom")]
 
 [connection signal="timeout" from="FireTimer" to="." method="_on_fire_timer_timeout"]
 [connection signal="timeout" from="UnhurtTimer" to="." method="_on_unhurt_timer_timeout"]
+[connection signal="finished" from="Fire" to="." method="_on_fire_finished"]

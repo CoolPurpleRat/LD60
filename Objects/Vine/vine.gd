@@ -11,6 +11,11 @@ signal vineDied
 		if Engine.is_editor_hint():
 			redrawVinesFunDebug()
 @export_range(0.1, 60, 0.1, "or_greater") var regrowTime:float=1
+@export_range(0.0, 5, 0.1, "or_greater") var vineWidth:float=0.3:
+	set(value):
+		vineWidth=value
+		if vineDrawRef:
+			vineDrawRef.base_radius=value
 
 var activePoints:Array[Marker3D]
 var vineHurtCols:Array[vineHurtCol]
@@ -24,12 +29,14 @@ const vineHurtColRes = preload("uid://dlpabhcdpbk8w")
 var lastPointId:int=0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		redrawVinesFunDebug()
+		return
 	for point in points:
 		path.curve.add_point(point.global_position)
 	activePoints=points.duplicate()
+	vineDrawRef.base_radius=vineWidth
 	redrawVinesFun()
-	if Engine.is_editor_hint():
-		return
 
 	for pointId in points.size():	
 		var vineHurtColIns:vineHurtCol=vineHurtColRes.instantiate()
@@ -43,13 +50,19 @@ func _ready() -> void:
 		vineHurtCols.append(vineHurtColIns)
 	regrowTimerRef.wait_time=regrowTime
 
+##redraw in game
 func redrawVinesFun()->void:
 	path.curve.clear_points()
 	for point in activePoints:
 		path.curve.add_point(point.global_position)
 	vineDrawRef._generate_vine()
 
+##redraw in editor
 func redrawVinesFunDebug()->void:
+	if points.size()<2:
+		push_warning(get_path(), " has no points")
+	if not path:
+		return
 	path.curve.clear_points()
 	activePoints=points.duplicate()
 	for point in activePoints:
@@ -66,6 +79,7 @@ func pointDied(pointId:int)->void:
 		activePoints.remove_at(activePoints.size()-1)
 		redrawVinesFun()
 		vineHurtCols[pointId-1].canDie=true
+		vineHurtCols[pointId-1].collisionRef.set_deferred("disabled", false)
 	regrowTimerRef.start()
 
 func pointHurt()->void:
@@ -80,6 +94,7 @@ func _on_regrow_timer_timeout() -> void:
 		return
 	activePoints.append(points[activePoints.size()])
 	vineHurtCols[activePoints.size()-1].canDie=true
+	vineHurtCols[activePoints.size()-1].collisionRef.set_deferred("disabled", false)
 	vineHurtCols[activePoints.size()-2].canDie=false
 
 	redrawVinesFun()

@@ -3,8 +3,9 @@ extends Node
 #region Refs
 ##Audio for all buttons in group UIButton
 @onready var uiBSoundRef: AudioStreamPlayer = %UIButtonSound
+@onready var musicPlayerRef: AudioStreamPlayer = %MusicPlayer
 
-@onready var MusicPlayerRef:AudioStreamPlaybackInteractive=%MusicPlayer.get_stream_playback()
+@onready var MusicPlayerStreamRef:AudioStreamPlaybackInteractive=%MusicPlayer.get_stream_playback()
 #endregion
 
 #region Play music
@@ -18,12 +19,13 @@ var playingMusic:StringName=" "
 var lvlName:StringName
 
 ##Play music with no duplication
-func playMusic(nameMusic:StringName)->void:
+func playMusic(nameMusic:StringName, pitch:float=1)->void:
 	if not musicList.has(nameMusic):
 		push_error(nameMusic, " not found! MusicSystem")
 		return
 	if (not nameMusic==playingMusic):
-		MusicPlayerRef.switch_to_clip_by_name(nameMusic)
+		musicPlayerRef.pitch_scale=pitch
+		MusicPlayerStreamRef.switch_to_clip_by_name(nameMusic)
 		playingMusic=nameMusic
 		lvlName=""
 
@@ -33,7 +35,7 @@ func playMusicWithAlt(nameMusic:StringName, userName:StringName=" ")->void:
 		push_error(nameMusic, " not found! MusicSystem")
 		return
 	if (not nameMusic==playingMusic) and (not userName==lvlName):
-		MusicPlayerRef.switch_to_clip_by_name(nameMusic)
+		MusicPlayerStreamRef.switch_to_clip_by_name(nameMusic)
 		playingMusic=nameMusic
 		lvlName=userName
 

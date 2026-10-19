@@ -1,8 +1,8 @@
 extends CharacterBody3D
+class_name Player
 
-
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+const SPEED = 15.0
+const JUMP_VELOCITY = 6.5
 
 #TODO: setting to set it
 @export var mouse_sensitivity: float = 0.3
@@ -13,11 +13,13 @@ const JUMP_VELOCITY = 4.5
 @onready var lazerSFXRef: AudioStreamPlayer3D = %Fire
 @onready var rightHandAnimRef: AnimationPlayer = %RightHandAnim
 @onready var lazerEndRef: Node3D = %LazerEnd
+@onready var cameraRef: Camera3D = %Camera3D
 
+@export var checkpointRef:Marker3D
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MouseMode.MOUSE_MODE_CAPTURED)
-
+	
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -46,6 +48,24 @@ func _input(event: InputEvent) -> void:
 	if event.is_action(&"Pause"):
 		Input.set_mouse_mode(Input.MouseMode.MOUSE_MODE_VISIBLE)
 		PauseMenu.setActive()
+		
+	if event.is_action(&"ZoomIn"):
+		zoom()
+	elif event.is_action(&"ZoomOut"):
+		zoom(false)
+	elif event.is_action(&"ZoomRestore"):
+		var newTween:=create_tween()
+		newTween.set_ease(Tween.EASE_OUT)
+		newTween.set_trans(Tween.TRANS_SPRING)
+		newTween.tween_property(cameraRef, "fov", 75, 0.5)
+
+func zoom(isIn:=true)->void:
+	var newFov:float
+	if isIn:
+		newFov=cameraRef.fov-1
+	else:
+		newFov=cameraRef.fov+1
+	cameraRef.fov=clampf(newFov, 10, 100)
 
 var cameraXangle: float = 0.0
 func _procCamera(event:InputEvent)->void:
@@ -75,7 +95,7 @@ func _lazerProc()->void:
 		if isCanLazerBody():
 			lazeredBody.get_ref().lazered(false)
 		lazerAnim(false)
-		
+
 func lazerAnim(on:=true)->void:
 	if not on:
 		rightHandAnimRef.play(&"Idle")
@@ -90,10 +110,16 @@ func lazerAnim(on:=true)->void:
 		MusicSystem.playSfx(lazerSFXRef, 0.5, 0.8)
 		var laserPoint:=lazerCastRef.get_collision_point()
 		lazerMeshRef.look_at(laserPoint, Vector3(0,1,0))
-		lazerMeshRef.scale.z=lazerMeshRef.global_position.distance_to(laserPoint)
+		var distance:float=lazerMeshRef.global_position.distance_to(laserPoint)
+		lazerMeshRef.scale.z=distance
+		lazerMeshRef.scale.x=clamp(30/distance, 0.5, 5)
+		lazerMeshRef.scale.y=clamp(30/distance, 0.5, 5)
 		lazerEndRef.global_position=laserPoint
 
 func isCanLazerBody()->bool:
 	if lazeredBody and lazeredBody.get_ref() and lazeredBody.get_ref().has_method("lazered"):
 		return true
 	return false
+
+func respawn()->void:
+	global_position=checkpointRef.global_position

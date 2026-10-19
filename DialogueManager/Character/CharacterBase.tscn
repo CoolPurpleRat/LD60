@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c4ngynjofceon"]
 
 [ext_resource type="Script" uid="uid://c8asiwiajtw52" path="res://DialogueManager/Character/Character.gd" id="1_they3"]
-[ext_resource type="AudioStream" uid="uid://7x2mka04ll6g" path="res://TestingWorld/MiSound.wav" id="2_g0s67"]
+[ext_resource type="AudioStream" uid="uid://7x2mka04ll6g" path="res://DialogueManager/Example/MiSound.wav" id="2_g0s67"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_g0s67"]
 random_pitch = 1.7817973

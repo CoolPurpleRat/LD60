@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://rw27jbrj5osb"]
+
+[ext_resource type="Texture2D" uid="uid://b2pa267d181lc" path="res://Objects/Map/MapBrick.png" id="1_pf460"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_pf460"]
+height = 100.0
+radius = 20.5
+
+[sub_resource type="Gradient" id="Gradient_afebq"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0.48102874, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_d2idd"]
+noise_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qxoed"]
+noise = SubResource("FastNoiseLite_d2idd")
+color_ramp = SubResource("Gradient_afebq")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7pw0b"]
+noise_type = 2
+frequency = 0.0125
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_p0hg6"]
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_7pw0b")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dq7x8"]
+albedo_texture = ExtResource("1_pf460")
+metallic_specular = 0.0
+heightmap_texture = ExtResource("1_pf460")
+detail_enabled = true
+detail_mask = SubResource("NoiseTexture2D_p0hg6")
+detail_blend_mode = 3
+detail_albedo = SubResource("NoiseTexture2D_qxoed")
+uv1_scale = Vector3(3, 3, 3)
+uv1_triplanar_sharpness = 2.9281733
+uv1_world_triplanar = true
+stencil_flags = 2
+stencil_outline_thickness = 1.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_lac52"]
+material = SubResource("StandardMaterial3D_dq7x8")
+top_radius = 20.0
+bottom_radius = 20.0
+height = 100.0
+
+[node name="Column" type="Node3D" unique_id=1176784]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1098021785]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=841306326]
+shape = SubResource("CylinderShape3D_pf460")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1579739566]
+mesh = SubResource("CylinderMesh_lac52")

@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://c2eq0oe4aabgk"]
+
+[ext_resource type="Script" uid="uid://cqwk8pdhw3ts" path="res://Objects/Torch/Torch.gd" id="1_ha8f5"]
+[ext_resource type="PackedScene" uid="uid://bmcf5oefc7ykt" path="res://Objects/Torch/Torch.glb" id="2_83bs4"]
+[ext_resource type="AudioStream" uid="uid://d0gspsu4tc6lc" path="res://Audio/Sfx/Fire.ogg" id="3_jkyd3"]
+[ext_resource type="PackedScene" uid="uid://dx5g4hr1rwe11" path="res://Objects/FireParticles.tscn" id="4_83bs4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_83bs4"]
+size = Vector3(2, 2, 2)
+
+[node name="Torch" type="StaticBody3D" unique_id=1711576588]
+script = ExtResource("1_ha8f5")
+
+[node name="Torch" parent="." unique_id=685010279 instance=ExtResource("2_83bs4")]
+transform = Transform3D(1.325, 0, 0, 0, 1.325, 0, 0, 0, 1.325, 0, 0, 0)
+
+[node name="Fire" type="AudioStreamPlayer3D" parent="." unique_id=705488589]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0396688, 0, -0.17175913)
+stream = ExtResource("3_jkyd3")
+unit_size = 2.0
+bus = &"SFX"
+
+[node name="FireParticles" parent="." unique_id=1280675837 instance=ExtResource("4_83bs4")]
+transform = Transform3D(1.325, 0, 0, 0, 1.325, 0, 0, 0, 1.325, 0, 1.8001568, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1974065150]
+unique_name_in_owner = true
+transform = Transform3D(1.325, 0, 0, 0, 1.325, 0, 0, 0, 1.325, 0, 0.7391162, 0)
+shape = SubResource("BoxShape3D_83bs4")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=71604120]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7151016, 0)
+light_color = Color(1, 0.7921569, 0, 1)
+light_energy = 5.0
+shadow_enabled = true
+distance_fade_enabled = true
+omni_range = 15.0
+metadata/_edit_lock_ = true
+
+[connection signal="finished" from="Fire" to="." method="_on_fire_finished"]
