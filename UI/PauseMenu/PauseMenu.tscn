@@ -54,10 +54,11 @@ offset_bottom = 235.0
 focus_neighbor_bottom = NodePath("../Version")
 focus_next = NodePath("../Version")
 
-[node name="Version" parent="MenuSwitcher/MainOptions" unique_id=611333465 instance=ExtResource("3_bx856")]
+[node name="Version" parent="MenuSwitcher/MainOptions" unique_id=611333465 node_paths=PackedStringArray("focusEscapeRef") instance=ExtResource("3_bx856")]
 layout_mode = 1
 offset_top = -34.0
 offset_right = 288.0
+focusEscapeRef = NodePath("../VBoxContainer/Options b")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MenuSwitcher/MainOptions" unique_id=1694610332]
 layout_mode = 1

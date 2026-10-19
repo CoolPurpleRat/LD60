@@ -108,6 +108,7 @@ focus_neighbor_right = NodePath("../VBoxContainer/Exit b")
 focus_neighbor_bottom = NodePath("../VBoxContainer/Exit b")
 focus_next = NodePath("../VBoxContainer/Exit b")
 focus_previous = NodePath("../VBoxContainer/Exit b")
+text = "v1.0b first hour fix"
 focusEscapeRef = NodePath("../VBoxContainer/Options b")
 
 [node name="AlsoPlay" parent="MenuSwitcher/MainOptions" unique_id=900815861 instance=ExtResource("14_h4ivt")]

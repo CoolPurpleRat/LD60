@@ -10,6 +10,12 @@ var sfxBus:=AudioServer.get_bus_index("SFX")
 
 enum Tabs{Audio, Video, PCInput, MobInput, Game}
 
+func _on_mouse_sens_sl_value_changed(value: float) -> void:
+	PauseMenu.mouseSens=value
+
+func _on_invert_y_toggled(toggled_on: bool) -> void:
+	PauseMenu.InvertMouseY=toggled_on
+
 func _ready() -> void:
 	if not ToSave:
 		loadOptions()
@@ -79,8 +85,9 @@ func saveOptions()->void:
 	ToSave["MusicAudio"]=AudioServer.get_bus_volume_linear(musicBus)
 	ToSave["SFXAudio"]=AudioServer.get_bus_volume_linear(sfxBus)
 	
-	#ToSave["MobileButtonsOpacity"]=MobileButtons.getOpacity()
-	#ToSave["Language"]=TranslationServer.get_locale()
+	ToSave["InvertY"]=PauseMenu.InvertMouseY
+	ToSave["mouseSens"]=PauseMenu.mouseSens
+	
 	file.store_var(ToSave)
 	file.close()
 
@@ -96,6 +103,9 @@ func loadOptions()->void:
 	if ToSave.has("AudioOff"):AudioServer.set_bus_mute(0, ToSave["AudioOff"])
 	#if ToSave.has("MobileButtonsOpacity"):MobileButtons.buttonOpacity=ToSave["MobileButtonsOpacity"]
 	#if ToSave.has("Language"):TranslationServer.set_locale(ToSave["Language"])
+	if ToSave.has("InvertY"):PauseMenu.InvertMouseY=ToSave["InvertY"]
+	if ToSave.has("mouseSens"):PauseMenu.mouseSens=ToSave["mouseSens"]
+	
 	#Display operations are heavy. Its reduce function in ~2x time
 	if ToSave.has("fullScreen"):DisplayServer.call_deferred("window_set_mode", ToSave["fullScreen"])
 	if ToSave.has("ScreenResolution"):DisplayServer.call_deferred("window_set_size", ToSave["ScreenResolution"])
@@ -114,6 +124,8 @@ func setButtonsValues()->void:
 	setBut("SFXAudio", %SFX_Slider, "value")	
 	setBut("ScreenResolution", %ResolutionChoose, "windowResolution")
 	await get_tree().physics_frame
+	setBut("mouseSens", %MouseSensSl, "value")
+	setBut("InvertY", %InvertY, "button_pressed")
 	#if ToSave.has("MobileButtonsOpacity"):%ScreenTouchVisibility_Slider.value=ToSave["MobileButtonsOpacity"]
 #endregion
 

@@ -290,6 +290,47 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 2
 
+[node name="MouseSensL" type="Label" parent="TabContainer/Game/GridContainer" unique_id=85053805]
+custom_minimum_size = Vector2(0, 45.785)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme = ExtResource("2_v7uto")
+text = "Mouse sensitivity"
+autowrap_mode = 2
+resize_font_to_fit = true
+
+[node name="MouseSensSl" type="HSlider" parent="TabContainer/Game/GridContainer" unique_id=46048429]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 45.785)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme = ExtResource("2_v7uto")
+max_value = 1.0
+step = 0.001
+value = 0.3
+allow_greater = true
+allow_lesser = true
+
+[node name="Invert Y2" type="Label" parent="TabContainer/Game/GridContainer" unique_id=923502069]
+custom_minimum_size = Vector2(0, 45.785)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme = ExtResource("2_v7uto")
+text = "Invert Y"
+autowrap_mode = 2
+resize_font_to_fit = true
+
+[node name="InvertY" type="CheckBox" parent="TabContainer/Game/GridContainer" unique_id=1777421037]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 45.785)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme = ExtResource("2_v7uto")
+
 [node name="Label" type="Label" parent="TabContainer/Game/GridContainer" unique_id=850331551]
 visible = false
 layout_mode = 2
@@ -383,6 +424,8 @@ stream = ExtResource("5_v7uto")
 [connection signal="resolutionChange" from="TabContainer/Video/VideoSettings/ResolutionChoose" to="." method="_on_resolution_choose_resolution_change"]
 [connection signal="item_selected" from="TabContainer/Video/VideoSettings/VSyns_drop" to="." method="_on_v_syns_drop_item_selected"]
 [connection signal="value_changed" from="TabContainer/MobileInput/GridContainer/ScreenTouchVisibility_Slider" to="." method="_on_screen_touch_visibility_slider_value_changed"]
+[connection signal="value_changed" from="TabContainer/Game/GridContainer/MouseSensSl" to="." method="_on_mouse_sens_sl_value_changed"]
+[connection signal="toggled" from="TabContainer/Game/GridContainer/InvertY" to="." method="_on_invert_y_toggled"]
 [connection signal="pressed" from="TabContainer/Game/GridContainer/LanguageSwitch" to="." method="_onLanguageSwitchPressed"]
 [connection signal="pressed" from="TabContainer/Game/GridContainer/DeleteConfig_b" to="." method="_onDeleteConfigBPressed"]
 [connection signal="pressed" from="TabContainer/Game/GridContainer/DeleteProgress_b" to="." method="_on_delete_progress_b_pressed"]

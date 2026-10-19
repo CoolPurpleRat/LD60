@@ -56,7 +56,7 @@ size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../Y spin")
 focus_previous = NodePath("../X spin")
 theme_override_font_sizes/font_size = 10
-text = "Прийняти"
+text = "Accept"
 
 [connection signal="focus_entered" from="X spin" to="X spin" method="_onFocusEntered"]
 [connection signal="value_changed" from="X spin" to="." method="_on_x_spin_value_changed"]

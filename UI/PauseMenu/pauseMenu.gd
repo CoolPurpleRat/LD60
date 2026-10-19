@@ -4,6 +4,17 @@ const MainMenuRef:String="res://UI/MainMenu/MainMenu.tscn"
 @onready var menuSwitcherRef: TabContainer = %MenuSwitcher
 @onready var returnToMainRef: TextureButton = $ReturnToMain
 
+signal mouseSettingsChanged
+
+var mouseSens:float=0.3:
+	set(value):
+		mouseSens=value
+		emit_signal(&"mouseSettingsChanged")
+		
+var InvertMouseY:bool=false:
+	set(value):
+		InvertMouseY=value
+		emit_signal(&"mouseSettingsChanged")
 
 func _ready() -> void:
 	visible=false

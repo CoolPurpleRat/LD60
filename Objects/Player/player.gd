@@ -6,6 +6,7 @@ const JUMP_VELOCITY = 6.5
 
 #TODO: setting to set it
 @export var mouse_sensitivity: float = 0.3
+var invertMouseY:=false
 
 @onready var camera: Camera3D = $Camera3D
 @onready var lazerCastRef: RayCast3D = %LazerCast
@@ -19,6 +20,11 @@ const JUMP_VELOCITY = 6.5
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MouseMode.MOUSE_MODE_CAPTURED)
+	PauseMenu.connect(&"mouseSettingsChanged", updateMouse)
+	
+func updateMouse()->void:
+	mouse_sensitivity=PauseMenu.mouseSens
+	invertMouseY=PauseMenu.InvertMouseY
 	
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -75,7 +81,10 @@ func _procCamera(event:InputEvent)->void:
 		# Pitch up/down on the X axis with clamp
 		cameraXangle += event.relative.y * mouse_sensitivity
 		cameraXangle = clamp(cameraXangle, -90.0, 90.0)
-		camera.rotation.x = -deg_to_rad(cameraXangle)
+		if not invertMouseY:
+			camera.rotation.x = -deg_to_rad(cameraXangle)
+		else:
+			camera.rotation.x = deg_to_rad(cameraXangle)
 		
 var lazeredBody:WeakRef
 func _lazerProc()->void:

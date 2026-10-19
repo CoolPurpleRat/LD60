@@ -20,4 +20,5 @@ func _onCloseChangelogPressed() -> void:
 	var animTween:=create_tween()
 	animTween.tween_property(changelogRef, "offset_transform_scale", Vector2.ZERO, 0.5)
 	animTween.finished.connect(func()->void:changelogRef.visible=false)
-	focusEscapeRef.grab_focus()
+	if focusEscapeRef:
+		focusEscapeRef.grab_focus()
